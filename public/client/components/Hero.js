@@ -54,7 +54,9 @@ const Hero = () => {
                 Learn more
               </a>
             </div>
-            <div class="mb-16 sm:mb-0 mt-8 sm:mt-0 sm:w-3/5 sm:pl-12"></div>
+            <div class="mb-16 sm:mb-0 mt-8 sm:mt-0 sm:w-3/5 sm:pl-12">
+              {/* SVG GOES HERE!!!!! */}
+            </div>
           </main>
         </div>
       </div>
