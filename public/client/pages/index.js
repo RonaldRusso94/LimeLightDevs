@@ -1,11 +1,11 @@
-import Nav from "../components/nav";
-import Hero from "../components/Hero";
+import Navbar from "../components/layout/Navbar";
 
-export default function IndexPage() {
+const index = () => {
   return (
     <div>
-      {/* <Nav /> */}
-      <Hero />
+      <Navbar />
     </div>
   );
-}
+};
+
+export default index;
