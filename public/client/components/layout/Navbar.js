@@ -1,10 +1,11 @@
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
+import Button from "../common/Button";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   return (
-    <header className=" relative bg-gray-400 flex items-center justify-between">
+    <header className=" relative bg-gray-200 flex items-center justify-between">
       <a className="whitespace-no-wrap font-semibold" href="#">
         LimeLight Devs
       </a>
@@ -29,7 +30,7 @@ const Navbar = () => {
         </div>
       </nav>
       <ul
-        className="bg-gray-400 hidden sm:flex absolute sm:relative w-full sm:w-auto  items-center top-98 sm:py-6"
+        className="bg-gray-200 hidden sm:flex absolute sm:relative w-full sm:w-auto  items-center top-98 sm:py-6"
         id="a"
       >
         <li className="mr-5">
@@ -58,9 +59,7 @@ const Navbar = () => {
           </a>
         </li>
         <li className="mr-5">
-          <a className="font-medium" href="#">
-            Get a Quote
-          </a>
+          <Button>Get A Quote</Button>
         </li>
       </ul>
     </header>
