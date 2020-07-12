@@ -5,7 +5,7 @@ const index = () => {
   return (
     <div>
       <Layout>
-        <div className="flex">
+        <div className="flex mt-16">
           <div className="flex w-1/2 items-center justify-center h-12">
             Hello
           </div>
