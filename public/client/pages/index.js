@@ -4,16 +4,15 @@ import Carousel from "../components/Carousel";
 const index = () => {
   return (
     <div>
-      <Layout>
-        <div className="flex mt-16">
-          <div className="flex w-1/2 items-center justify-center h-12">
-            Hello
-          </div>
-          <div className=" w-1/2">
-            <Carousel />
-          </div>
+      <div className="flex">
+        <div className="bg-red-200 w-1/2 flex-none">Hello</div>
+        <div className="bg-gray-400 w-1/2 flex-none">
+          <Carousel />
         </div>
-      </Layout>
+      </div>
+      <div>
+        <h1>THIS IS A BLOCK ELEMENT</h1>
+      </div>
     </div>
   );
 };
