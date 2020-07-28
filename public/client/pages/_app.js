@@ -1,5 +1,6 @@
 import "../styles/index.css";
-import "pure-react-carousel/dist/react-carousel.es.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

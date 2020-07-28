@@ -1,40 +1,37 @@
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-} from "pure-react-carousel";
+import React, { Component } from "react";
+import Slider from "react-slick";
 
-const Carousel = () => {
-  return (
-    <CarouselProvider
-      naturalSlideWidth={100}
-      naturalSlideHeight={125}
-      totalSlides={3}
-    >
-      <Slider className="rounded">
-        <Slide index={0}>
-          <img
-            src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt=""
-          />
-        </Slide>
-        <Slide index={1}>
-          <img
-            src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt=""
-          />
-        </Slide>
-        <Slide index={2}>
-          <img
-            src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt=""
-          />
-        </Slide>
+export class Carousel extends Component {
+  render() {
+    // var settings = {
+    //   dots: true,
+    //   infinite: true,
+    //   speed: 500,
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    // };
+    var settings = {
+      centerMode: true,
+      dots: true,
+      arrows: true,
+      fade: true,
+      // autoplay: true,
+      // autoplaySpeed: 5000,
+    };
+    return (
+      <Slider {...settings}>
+        <div>
+          <img src="http://placekitten.com/g/400/200" />
+        </div>
+        <div>
+          <img src="http://placekitten.com/g/400/200" />
+        </div>
+        <div>
+          <img src="http://placekitten.com/g/400/200" />
+        </div>
       </Slider>
-    </CarouselProvider>
-  );
-};
+    );
+  }
+}
 
 export default Carousel;

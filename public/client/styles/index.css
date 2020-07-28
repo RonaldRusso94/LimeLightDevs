@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.max-h-0 {
-  max-height: 0;
+body {
+  @apply bg-gray-400;
 }
+
 .flip {
   transform: scaleX(-1);
 }
 
-.carousel-md {
-  height: 100px;
+.slick-dots {
+  top: 80%;
 }
