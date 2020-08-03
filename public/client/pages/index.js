@@ -13,7 +13,7 @@ class index extends React.Component {
         </div>
 
         <div className="w-1/2">
-          <div className="bg-blue-500 container mx-auto">
+          <div className="bg-blue-500 ">
             <Carousel />
           </div>
         </div>

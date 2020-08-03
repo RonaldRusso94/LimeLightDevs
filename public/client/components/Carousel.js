@@ -15,13 +15,14 @@ export class Carousel extends Component {
       dots: true,
       arrows: true,
       fade: true,
+      variableWidth: true,
       // autoplay: true,
       // autoplaySpeed: 5000,
     };
     return (
       <Slider {...settings}>
         <div>
-          <img src="http://placekitten.com/g/400/200" />
+          <img className="rounded" src="http://placekitten.com/g/400/200" />
         </div>
         <div>
           <img src="http://placekitten.com/g/400/200" />
