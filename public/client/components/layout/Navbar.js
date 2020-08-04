@@ -1,116 +1,92 @@
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
-import Button from "../common/Button";
+import Logo from "../common/Logo";
+import NavItem from "./NavItem.js";
+import Form from "../common/Form";
+
+export const toggleClass = (elementId, classArray) => {
+  classArray.forEach((cls) => {
+    document.getElementById(elementId).classList.toggle(cls);
+  });
+};
+
+export const addClass = (elementId, classArray) => {
+  classArray.forEach((cls) => {
+    document.getElementById(elementId).classList.add(cls);
+  });
+};
+
+export const removeClass = (elementId, classArray) => {
+  classArray.forEach((cls) => {
+    document.getElementById(elementId).classList.remove(cls);
+  });
+};
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  return (
-    // <header className="  bg-gray-200">
-    //   <nav className="relative flex items-center justify-between mx-6">
-    //     <a className="whitespace-no-wrap font-semibold" href="#">
-    //       LimeLight Devs
-    //     </a>
-    //     <div className="flex">
-    //       <div className="sm:hidden">
-    //         <Hamburger
-    //           label="Show navagation menu"
-    //           rounded
-    //           color="black"
-    //           size={24}
-    //           onToggle={(toggled) => {
-    //             if (toggled) {
-    //               document.getElementById("a").classList.toggle("hidden");
-    //               // open a menu
-    //               return;
-    //             } else {
-    //               // close a menu
-    //               document.getElementById("a").classList.toggle("hidden");
-    //             }
-    //           }}
-    //         />
-    //       </div>
-    //     </div>
-    //     <ul
-    //       className="bg-gray-200 hidden sm:flex absolute sm:relative w-full sm:w-auto  items-center top-98 sm:py-6 z-10"
-    //       id="a"
-    //     >
-    //       <li className="mr-5">
-    //         <a className="font-medium" href="#">
-    //           Home
-    //         </a>
-    //       </li>
-    //       <li className="mr-5">
-    //         <a className="font-medium" href="#">
-    //           Services
-    //         </a>
-    //       </li>
-    //       <li className="mr-5">
-    //         <a className="font-medium" href="#">
-    //           Portfolio
-    //         </a>
-    //       </li>
-    //       <li className="mr-5">
-    //         <a className="font-medium" href="#">
-    //           Packages
-    //         </a>
-    //       </li>
-    //       <li className="mr-5">
-    //         <a className="font-medium" href="#">
-    //           How It Works
-    //         </a>
-    //       </li>
-    //       <li className="mr-5">
-    //         <Button>Get A Quote</Button>
-    //       </li>
-    //     </ul>
-    //   </nav>
-    // </header>
-    <header className="bg-gray-200 w-full z-10 sm:flex">
-      <div className="flex justify-between items-center">
-        <a href="#">Limelight Devs</a>
 
-        <div className="sm:hidden">
+  const navClasses = [];
+
+  const handleMobileDropdown = (toggled) => {
+    if (toggled) {
+      toggleClass("navigation", ["hidden"]);
+
+      removeClass("nav", ["flex-row"]);
+      removeClass("form", ["w-3/6"]);
+
+      addClass("navigation", ["mt-4"]);
+      addClass("nav", ["flex-col", "justify-center"]);
+      addClass("form", ["mt-4", "justify-center", "w-3/4"]);
+      // open a menu
+      return;
+    } else {
+      // close a menu
+      toggleClass("navigation", ["hidden"]);
+
+      removeClass("nav", ["flex-col", "justify-center"]);
+      removeClass("navigation", ["mt-4"]);
+      removeClass("form", ["mt-4", "justify-center", "w-3/4"]);
+
+      addClass("nav", ["flex-row"]);
+      addClass("form", ["w-3/6"]);
+    }
+  };
+
+  return (
+    <nav className="md:flex bg-gray-800 text-white w-full z-10 p-3 px-6 fixed">
+      <div
+        className="flex justify-between items-center w-full md:w-11/12 mx-auto"
+        id="nav"
+      >
+        <div>
+          <Logo />
+        </div>
+        <div className="w-3/6 md:w-4/12" id="form">
+          <Form />
+        </div>
+
+        <ul
+          id="navigation"
+          className="hidden md:flex items-center justify-center flex-row"
+        >
+          <NavItem href="/">Home</NavItem>
+          <NavItem href="/services">Services</NavItem>
+          <NavItem href="/portfolio" dot={false}>
+            Portfolio
+          </NavItem>
+        </ul>
+
+        <div className="md:hidden">
           <Hamburger
             label="Show navagation menu"
             rounded
-            color="black"
+            color="white"
             size={24}
-            onToggle={(toggled) => {
-              if (toggled) {
-                document
-                  .getElementById("navigation")
-                  .classList.toggle("hidden");
-                // open a menu
-                return;
-              } else {
-                // close a menu
-                document
-                  .getElementById("navigation")
-                  .classList.toggle("hidden");
-              }
-            }}
+            onToggle={handleMobileDropdown}
           />
         </div>
       </div>
-
-      <ul id="navigation" className="hidden sm:flex ml-auto">
-        <li>
-          <a className="block p-2" href="#">
-            Home
-          </a>{" "}
-        </li>
-        <li>
-          <a className="block p-2" href="#">
-            Services
-          </a>
-        </li>
-        <li>
-          <a className="block p-2" href="#">
-            Portfolio
-          </a>
-        </li>
-      </ul>
-    </header>
+    </nav>
   );
 };
 
