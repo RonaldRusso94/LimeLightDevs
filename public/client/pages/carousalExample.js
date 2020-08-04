@@ -1,9 +1,16 @@
 import Carousel from "../components/common/Carousel";
 
-class index extends React.Component {
+class carousalExample extends React.Component {
   render() {
+    const images = [
+      "https://via.placeholder.com/400x200",
+      "https://via.placeholder.com/400x200",
+      "https://via.placeholder.com/400x200",
+      "https://via.placeholder.com/400x200",
+    ]
+  
     return (
-      <div className="flex">
+      <div className="centerAlign">
         <div className=" text-center w-1/2 bg-red-100 px-4">
           <h1 className=" text-4xl">Short Striking Bold Text</h1>
           <p>
@@ -13,8 +20,8 @@ class index extends React.Component {
         </div>
 
         <div className="w-1/2">
-          <div className="bg-blue-500 ">
-            <Carousel />
+          <div className="bg-blue-500">
+            <Carousel images={images}/>
           </div>
         </div>
       </div>
@@ -22,4 +29,4 @@ class index extends React.Component {
   }
 }
 
-export default index;
+export default carousalExample;

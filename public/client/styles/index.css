@@ -13,3 +13,14 @@ body {
 .slick-dots {
   top: 80%;
 }
+
+.centerAlign {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider img {
+  margin: 0 auto;
+}
