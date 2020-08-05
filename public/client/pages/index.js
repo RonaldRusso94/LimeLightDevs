@@ -1,8 +1,9 @@
 import Carousel from "../components/Carousel";
-
+import ContactFormPrimary from "../components/ContactFormPrimary";
 class index extends React.Component {
   render() {
     return (
+      <>
       <div className="flex">
         <div className=" text-center w-1/2 bg-red-100 px-4">
           <h1 className=" text-4xl">Short Striking Bold Text</h1>
@@ -18,6 +19,10 @@ class index extends React.Component {
           </div>
         </div>
       </div>
+      <div className="grid grid-rows-2 grid-flow-col gap-4">
+        <ContactFormPrimary />
+      </div>
+    </>
     );
   }
 }
