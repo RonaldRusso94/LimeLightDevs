@@ -11,5 +11,14 @@ body {
 }
 
 .slick-dots {
-  top: 80%;
+  /* top: 80%; */
+}
+
+.slick-dots li button::before {
+  font-size: 20px !important;
+  line-height: 20px !important;
+}
+
+.font-none {
+  font-size: 0;
 }
