@@ -2,7 +2,7 @@ import PackageDeal from "./PackageDeal";
 
 const Packages = () => {
   return (
-    <div className="bg-blue-400 mt-4 p-4">
+    <div className="bg-gray-200 mt-16 p-4">
       <div>
         <h1 className="text-3xl font-bold">My Packages</h1>
         <p className="lg:w-10/12">
@@ -13,7 +13,7 @@ const Packages = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:gap-8 gap-4 mx-4 sm:mx-0 lg:mx-6 xl:mx-64 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:gap-8 gap-4 xl:gap-0 mx-8 sm:mx-0 lg:mx-6 xl:mx-64 mt-8">
         <PackageDeal
           title={"Basic Web Package"}
           originalPrice={"$299"}

@@ -8,7 +8,7 @@ class index extends React.Component {
   render() {
     return (
       <Layout>
-        <div className="md:mx-8 mx-2">
+        <div className="md:mx-8 mx-1">
           {/* <Hero /> */}
           <Packages />
         </div>
