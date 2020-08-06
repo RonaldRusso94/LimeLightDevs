@@ -8,7 +8,7 @@ const Carousel = ({imagesPerSlide, images}) => {
   const baseSettings = {
     className:"slider p-4",
     dots: true,
-    dotsClass: "pt-2 slick-dots",
+    dotsClass: "padding-2y-important slick-dots",
     infinite: true,
     slidesToShow,
     slidesToScroll: 1,

@@ -1,5 +1,4 @@
 module.exports = {
-  important: true,
   purge: ["./components/**/*.js", "./pages/**/*.js"],
   theme: {
     extend: { inset: { 98: "98%" } },
