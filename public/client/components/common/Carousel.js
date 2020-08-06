@@ -5,12 +5,6 @@ import  SliderImage from "./SliderImage"
 
 const Carousel = ({imagesPerSlide, images}) => {
   const slidesToShow = parseInt(`${imagesPerSlide}`, 10) || 1;
-  const slidesToShow1280 = imagesPerSlide < 4 ? imagesPerSlide : 4
-  const slidesToShow1024 = parseInt(`${imagesPerSlide}`, 10) || 1;
-  const slidesToShow600 = parseInt(`${imagesPerSlide}`, 10) || 1;
-  const slidesToShow480 = parseInt(`${imagesPerSlide}`, 10) || 1;
-
-
   const baseSettings = {
     className:"slider p-4",
     dots: true,
