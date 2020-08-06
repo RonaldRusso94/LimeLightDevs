@@ -26,7 +26,6 @@ export class Carousel extends Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      dotsClass: "slick-dots",
     };
     return (
       <Slider {...settings}>
