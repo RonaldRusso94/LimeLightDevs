@@ -1,3 +1,5 @@
+import Carousel from "../components/Carousel";
+
 import Layout from "../components/layout/Layout";
 import Hero from "../components/Hero";
 import Button from "../components/common/Button";
