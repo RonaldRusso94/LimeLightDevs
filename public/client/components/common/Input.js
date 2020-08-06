@@ -1,8 +1,13 @@
-const Input = () => {
-    // TODO Make an input component which takes in label, default-value
-    return (
-        <input />
-    )
-}
+const Input = ({
+    field, // { name, value, onChange, onBlur }
+    form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+    ...props
+  }) => (
+    <div>
+      <input type="text" {...field} {...props} />
+      {touched[field.name] &&
+        errors[field.name] && <div className="error">{errors[field.name]}</div>}
+    </div>
+  );
 
 export default Input;
