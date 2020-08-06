@@ -4,7 +4,7 @@ const Input = ({
     ...props
   }) => (
     <div>
-      <input type="text" {...field} {...props} />
+      <input type="text" {...field} {...props} className="block my-5 mx-10 w-64 bg-transparent border-b border-gray-500 py-2"/>
       {touched[field.name] &&
         errors[field.name] && <div className="error">{errors[field.name]}</div>}
     </div>
