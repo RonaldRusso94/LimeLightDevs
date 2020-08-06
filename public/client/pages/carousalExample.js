@@ -3,10 +3,16 @@ import Carousel from "../components/common/Carousel";
 class carousalExample extends React.Component {
   render() {
     const images = [
-      "https://via.placeholder.com/400x200",
-      "https://via.placeholder.com/400x200",
-      "https://via.placeholder.com/400x200",
-      "https://via.placeholder.com/400x200",
+      "https://via.placeholder.com/100x100",
+      "https://via.placeholder.com/101x100",
+      "https://via.placeholder.com/102x100",
+      "https://via.placeholder.com/103x100",
+      "https://via.placeholder.com/104x100",
+      "https://via.placeholder.com/105x100",
+      "https://via.placeholder.com/106x100",
+      "https://via.placeholder.com/107x100",
+      "https://via.placeholder.com/108x100",
+      "https://via.placeholder.com/109x100",
     ]
   
     return (
@@ -20,9 +26,11 @@ class carousalExample extends React.Component {
         </div>
 
         <div className="w-1/2">
-          <div className="bg-blue-500">
-            <Carousel images={images}/>
-          </div>
+            <Carousel images={images} imagesPerSlide="5" 
+              onMouseEnter={() => console.log("test")}
+              onMouseLeave={() => console.log("test")}
+              onClick={() => console.log("test")}
+            />
         </div>
       </div>
     );

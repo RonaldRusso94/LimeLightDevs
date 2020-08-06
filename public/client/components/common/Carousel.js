@@ -1,25 +1,65 @@
+import {useRef} from "react";
 import React from "react";
 import Slider from "react-slick";
 import  SliderImage from "./SliderImage"
 
-const Carousel = (props) => {
-  const settings = {
-    centerMode: true,
-    centerPadding: "0px",
+const Carousel = ({imagesPerSlide, images}) => {
+  const slidesToShow = parseInt(`${imagesPerSlide}`, 10) || 1;
+  const baseSettings = {
+    className:"slider p-4",
     dots: true,
+    dotsClass: "pt-2 slick-dots",
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+  }
+  const settings = {
+    ...baseSettings,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          ...baseSettings,
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          ...baseSettings,
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          ...baseSettings,
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          ...baseSettings,
+          dots: false,
+          slidesToShow: 1
+        }
+      }
+    ]
   };
-  const {images} = props
   const slides = images.map((image, index) => {
     return(
       <SliderImage image={image} key={index}/>
     )
   })
     return (
-    <Slider {...settings} className="slider">
+    <Slider {...settings}>
       {slides}
     </Slider>
   );
