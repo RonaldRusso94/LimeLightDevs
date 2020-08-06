@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   @apply bg-gray-400;
-}
+} */
 
 .flip {
   transform: scaleX(-1);
