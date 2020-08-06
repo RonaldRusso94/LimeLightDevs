@@ -4,9 +4,9 @@ const ContactFormPrimary = () => {
     return (<>
     <div className="container m-10 w-1/3 bg-white p-5">
         <h2 className="text-3xl font-bold text-center">Let's talk business!</h2>
-        <Formik
+        <Formik 
             initalValues={{ 
-                name: "", 
+                name: "",
                 email: "", 
                 phone: "", 
                 project: ""
