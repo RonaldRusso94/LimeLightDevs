@@ -47,6 +47,7 @@ const Carousel = ({imagesPerSlide, images}) => {
         breakpoint: 480,
         settings: {
           ...baseSettings,
+          arrows: true,
           dots: false,
           slidesToShow: Math.min(1, slidesToShow)
         }
