@@ -1,14 +1,14 @@
-import {useRef} from "react";
+import {useRef, useState} from "react";
 import React from "react";
 import Slider from "react-slick";
 import  SliderImage from "./SliderImage"
 
 const Carousel = ({imagesPerSlide, images}) => {
   const slidesToShow = parseInt(`${imagesPerSlide}`, 10) || 1;
+
   const baseSettings = {
     className:"slider p-4",
-    dots: true,
-    dotsClass: "padding-2y-important slick-dots",
+    draggable: true,
     infinite: true,
     slidesToShow,
     slidesToScroll: 1,
@@ -47,8 +47,7 @@ const Carousel = ({imagesPerSlide, images}) => {
         breakpoint: 480,
         settings: {
           ...baseSettings,
-          arrows: true,
-          dots: false,
+          draggable: true,
           slidesToShow: Math.min(1, slidesToShow)
         }
       }
@@ -56,7 +55,7 @@ const Carousel = ({imagesPerSlide, images}) => {
   };
   const slides = images.map((image, index) => {
     return(
-      <SliderImage image={image} key={index}/>
+      <SliderImage image={image} key={index} className="p-2 slider-image"/>
     )
   })
     return (
