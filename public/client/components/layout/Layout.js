@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
         <TopNavbar />
         <Navbar />
       </nav>
-      {children}
+      <main className="mt-2">{children}</main>
     </>
   );
 };

@@ -14,7 +14,8 @@ class index extends React.Component {
       <Layout>
         <div className="md:mx-8 mx-1 bg-green-400 p-4">
           Index.js
-          {/* <Hero /> */}
+          {/* <div className="md:mx-8 mx-2"> */}
+          <Hero />
           <Packages />
           <ContactFormSecondary />
           <ContactFormPrimary />
