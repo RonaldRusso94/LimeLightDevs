@@ -5,10 +5,7 @@ import Hero from "../components/Hero";
 import Button from "../components/common/Button";
 import PackageDeal from "../components/PackageDeal";
 import Packages from "../components/Packages";
-<<<<<<< HEAD
 import ContactFormSecondary from "../components/ContactFormSeconday";
-=======
->>>>>>> ContactFormPrimary
 import ContactFormPrimary from "../components/ContactFormPrimary";
 
 class index extends React.Component {
@@ -19,11 +16,8 @@ class index extends React.Component {
           Index.js
           {/* <div className="md:mx-8 mx-2"> */}
           <Hero />
-          <Packages />
-<<<<<<< HEAD
           <ContactFormSecondary />
-=======
->>>>>>> ContactFormPrimary
+          <Packages />
           <ContactFormPrimary />
         </div>
       </Layout>
