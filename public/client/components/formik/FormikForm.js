@@ -3,15 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const FormikForm = ({ fields }) => {
-  //   const initVals = [];
-  //   const initValsFunc = (arr) => {
-  //     arr.map((obj) => {
-  //       return initVals.push(obj);
-  //     });
-  //   };
-
   let initialValuesObj = {};
-
   const initialValuesFunction = (arrOfObjs) => {
     arrOfObjs.map((obj) => {
       let newobj = { [obj.name]: "" };
@@ -20,7 +12,6 @@ const FormikForm = ({ fields }) => {
   };
 
   let validationArr = [];
-
   const validationFunction = (arrOfObjs) => {
     arrOfObjs.map((obj) => {
       return validationArr.push({
@@ -35,16 +26,24 @@ const FormikForm = ({ fields }) => {
 
   validationFunction(fields);
   initialValuesFunction(fields);
-  let firstname = "firstname";
-  console.log("validationArr :>> ", validationArr);
-  console.log("initvals", initialValuesObj);
 
   const validationObject = {};
-  const [test, setTest] = React["useState"]("test");
   validationArr.forEach((item) => {
     validationObject[item.name] = Yup[item.yupType];
   });
 
+  const validationRule = (arrOfObjs) => {
+    arrOfObjs.map((obj) => {
+      obj.rules.map((rule) => {
+        validationObject[rule.ruleType];
+        console.log("validationObject!!!!! :>> ", validationObject);
+        console.log(rule);
+      });
+    });
+  };
+
+  validationRule(fields);
+  console.log("validationArr :>> ", validationArr);
   console.log("validationObject :>> ", validationObject);
   return (
     <Formik
@@ -78,7 +77,6 @@ const FormikForm = ({ fields }) => {
     >
       {({ isSubmitting }) => (
         <Form className="">
-          <span style={{ fontSize: "80px" }}>{test}</span>
           <div className="grid grid-cols-2 gap-4 my-4">
             <Field
               type="text"
