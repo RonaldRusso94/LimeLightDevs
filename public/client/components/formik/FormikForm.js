@@ -10,38 +10,65 @@ const FormikForm = ({ fields }) => {
   //     });
   //   };
 
-  const arr = [];
+  let initialValuesObj = {};
+
   const initialValuesFunction = (arrOfObjs) => {
     arrOfObjs.map((obj) => {
-      return arr.push({ [obj.name]: "" });
+      let newobj = { [obj.name]: "" };
+      return (initialValuesObj = { ...initialValuesObj, ...newobj });
     });
   };
 
-  console.log(arr);
+  let validationArr = [];
+
+  const validationFunction = (arrOfObjs) => {
+    arrOfObjs.map((obj) => {
+      return validationArr.push({
+        name: obj.name,
+        rules: obj.rules,
+        yupType: obj.yupType,
+      });
+      // [{name: 'firstname' rules: ... }, {name: 'lastname', rules: ...} ]
+    });
+  };
+  // ["firstnam", lastname]
+
+  validationFunction(fields);
   initialValuesFunction(fields);
+  let firstname = "firstname";
+  console.log("validationArr :>> ", validationArr);
+  console.log("initvals", initialValuesObj);
+
+  const validationObject = {};
+  const [test, setTest] = React["useState"]("test");
+  validationArr.forEach((item) => {
+    validationObject[item.name] = Yup[item.yupType];
+  });
+
+  console.log("validationObject :>> ", validationObject);
   return (
     <Formik
       initialValues={
-        //   fields.map((field) => {
-        //     // return console.log(errMsg);
-        //     console.log(obj);
-        //     return obj.push({ [field.name]: "" });
-        //   })
-        arr
+        initialValuesObj
         //   { firstName: "", lastName: "", email: "", phoneNumber: "" }
       }
-      validationSchema={Yup.object({
-        firstName: Yup.string()
-          .min(3, "Must be 3 characters or more")
-          .max(20, "Must be 20 characters or less")
-          .required("Required"),
+      validationSchema={
+        Yup.object(validationObject || {})
+        // Yup.object({
+        //   firstName: Yup.string()
+        //     .min(3, "Must be 3 characters or more")
+        //     .max(20, "Must be 20 characters or less")
+        //     .required("Required"),
 
-        lastName: Yup.string()
-          .min(3, "Must be 3 characters or more")
-          .max(20, "Must be 20 characters or less")
-          .required("Required"),
-        email: Yup.string().email("Invalid email address").required("Required"),
-      })}
+        //   lastName: Yup.string()
+        //     .min(3, "Must be 3 characters or more")
+        //     .max(20, "Must be 20 characters or less")
+        //     .required("Required"),
+        //   email: Yup.string()
+        //     .email("Invalid email address")
+        //     .required("Required"),
+        // })
+      }
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
@@ -51,6 +78,7 @@ const FormikForm = ({ fields }) => {
     >
       {({ isSubmitting }) => (
         <Form className="">
+          <span style={{ fontSize: "80px" }}>{test}</span>
           <div className="grid grid-cols-2 gap-4 my-4">
             <Field
               type="text"

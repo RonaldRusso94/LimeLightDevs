@@ -14,19 +14,26 @@ const ContactFormSeconday = () => {
         </p>
         {/* <ContactForm /> */}
         <FormikForm
-          firstName={{ name: "firstName", errorMessage: "test" }}
+          // firstName={{ name: "firstName", errorMessage: "test" }}
           fields={[
             {
               name: "firstName",
               type: "text",
               placeholder: "First Name",
               errorMsg: "Error First",
+              yupType: "string",
+              rules: [
+                { ruleType: "min", ruleMsg: "Must be 3 characters or more" },
+              ],
             },
             {
               name: "lastName",
               type: "text",
               placeholder: "Last Name",
               errorMsg: "Error Last",
+              rules: [
+                { ruleType: "min", ruleMsg: "Must be 3 characters or more" },
+              ],
             },
           ]}
         ></FormikForm>
