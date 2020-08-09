@@ -4,6 +4,11 @@ import Slider from "react-slick";
 import  SliderImage from "./SliderImage"
 
 const Carousel = ({imagesPerSlide, images}) => {
+
+  if (images === undefined){
+    console.warn("The images prop is left undefined, please provide images")
+    images = ["https://via.placeholder.com/450/?text=No+Images+Provided"]
+  }
   const slidesToShow = parseInt(`${imagesPerSlide}`, 10) || 1;
 
   const baseSettings = {
