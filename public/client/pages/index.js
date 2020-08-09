@@ -18,7 +18,7 @@ class index extends React.Component {
           <Hero />
           <ContactFormSecondary />
           <Packages />
-          <ContactFormPrimary />
+          {/* <ContactFormPrimary /> */}
         </div>
       </Layout>
     );
