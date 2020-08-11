@@ -1,5 +1,3 @@
-
-
 class index extends React.Component {
   render() {
     return (
@@ -11,6 +9,7 @@ class index extends React.Component {
             Perferendis, itaque?
           </p>
         </div>
+      </div>
     );
   }
 }
