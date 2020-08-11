@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const FormikForm = ({ fields }) => {
+  // Defining {obj.name: ""}
   let initialValuesObj = {};
   const initialValuesFunction = (arrOfObjs) => {
     arrOfObjs.map((obj) => {
@@ -11,6 +12,7 @@ const FormikForm = ({ fields }) => {
     });
   };
 
+  // Defining [{name: "", rules:[{}], yupType: ""}, ...]
   let validationArr = [];
   const validationFunction = (arrOfObjs) => {
     arrOfObjs.map((obj) => {
@@ -19,10 +21,8 @@ const FormikForm = ({ fields }) => {
         rules: obj.rules,
         yupType: obj.yupType,
       });
-      // [{name: 'firstname' rules: ... }, {name: 'lastname', rules: ...} ]
     });
   };
-  // ["firstnam", lastname]
 
   validationFunction(fields);
   initialValuesFunction(fields);
@@ -35,9 +35,8 @@ const FormikForm = ({ fields }) => {
   const validationRule = (arrOfObjs) => {
     arrOfObjs.map((obj) => {
       obj.rules.map((rule) => {
-        validationObject[rule.ruleType];
-        console.log("validationObject!!!!! :>> ", validationObject);
-        console.log(rule);
+        // validationObject[rule.ruleType];
+        console.log("rule :>> ", rule);
       });
     });
   };
@@ -48,11 +47,12 @@ const FormikForm = ({ fields }) => {
   return (
     <Formik
       initialValues={
-        initialValuesObj
-        //   { firstName: "", lastName: "", email: "", phoneNumber: "" }
+        // initialValuesObj
+        { firstName: "", lastName: "", email: "", phoneNumber: "" }
       }
       validationSchema={
         Yup.object(validationObject || {})
+
         // Yup.object({
         //   firstName: Yup.string()
         //     .min(3, "Must be 3 characters or more")
@@ -78,21 +78,25 @@ const FormikForm = ({ fields }) => {
       {({ isSubmitting }) => (
         <Form className="">
           <div className="grid grid-cols-2 gap-4 my-4">
-            <Field
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              className="rounded py-1 px-2"
-            />
-            <ErrorMessage name="firstName" component="div" />
+            <div className=" flex flex-col">
+              <Field
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                className="rounded py-1 px-2"
+              />
+              <ErrorMessage name="firstName" />
+            </div>
 
-            <Field
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              className="rounded py-1 px-2"
-            />
-            <ErrorMessage name="lastName" component="div" />
+            <div className=" flex flex-col">
+              <Field
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                className="rounded py-1 px-2"
+              />
+              <ErrorMessage name="lastName" component="div" />
+            </div>
 
             <Field
               type="email"

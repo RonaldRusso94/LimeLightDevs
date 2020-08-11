@@ -33,7 +33,7 @@ const ContactFormSeconday = () => {
               errorMsg: "Error Last",
               yupType: "string",
               rules: [
-                { ruleType: "min", ruleMsg: "Must be 3 characters or more" },
+                { ruleType: "min", ruleMsg: "Must be 4 characters or more" },
               ],
             },
           ]}
