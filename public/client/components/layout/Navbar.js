@@ -1,6 +1,7 @@
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import Button from "../common/Button";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
@@ -35,19 +36,25 @@ const Navbar = () => {
 
       <ul id="navigation" className="hidden sm:flex ml-auto">
         <li>
-          <a className="block p-2" href="#">
-            Home
-          </a>{" "}
+          <Link href="/">
+            <a className="block p-2" href="#">
+              Home
+            </a>
+          </Link>
         </li>
         <li>
-          <a className="block p-2" href="#">
-            Services
-          </a>
+          <Link href="/services">
+            <a className="block p-2" href="#">
+              Services
+            </a>
+          </Link>
         </li>
         <li>
-          <a className="block p-2" href="#">
-            Portfolio
-          </a>
+          <Link href="portfolio">
+            <a className="block p-2" href="#">
+              Portfolio
+            </a>
+          </Link>
         </li>
       </ul>
     </header>

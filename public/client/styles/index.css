@@ -10,10 +10,10 @@
   transform: scaleX(-1);
 }
 
-/* .slick-dots li button::before {
+.slick-dots li button::before {
   font-size: 20px !important;
   line-height: 20px !important;
-} */
+}
 
 .font-none {
   font-size: 0;
@@ -56,3 +56,4 @@
   top: 80%;
   width: 90% !important;
 }
+/* End of Zolt's Carousal */
