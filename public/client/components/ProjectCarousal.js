@@ -1,18 +1,21 @@
 import {useRef, useState} from "react";
 import React from "react";
 import Slider from "react-slick";
-import  SliderImage from "./SliderImage"
-
-const Carousel = ({imagesPerSlide, images}) => {
-
-  if (images === undefined){
-    console.warn("The images prop is left undefined, please provide images")
-    images = ["https://via.placeholder.com/450/?text=No+Images+Provided"]
+import  SliderImage from "./common/SliderImage"
+import  SliderText from "./common/SliderText"
+const ProjectCarousal = ({numberPerSlide, slideValues}) => {
+  if (slideValues === undefined || slideValues.length === 0){
+    console.warn("The slides prop is left undefined, please provide slides")
+    slideValues = [{
+      "type": "image",
+      "value": "https://via.placeholder.com/450/?text=No+Images+Provided"
+    }]
   }
-  const slidesToShow = parseInt(`${imagesPerSlide}`, 10) || 1;
+  const slidesToShow = parseInt(`${numberPerSlide}`, 10) || 1;
 
   const baseSettings = {
-    className:"slider p-4",
+    className:"slider p-8",
+    dots: true,
     draggable: true,
     infinite: true,
     slidesToShow,
@@ -58,10 +61,16 @@ const Carousel = ({imagesPerSlide, images}) => {
       }
     ]
   };
-  const slides = images.map((image, index) => {
-    return(
-      <SliderImage image={image} key={index} className="p-2 slider-image"/>
-    )
+  const slides = slideValues.map((slide, index) => {
+      if (slide.type === "image"){
+        return(
+        <SliderImage image={slide.value} key={index} className="p-2 slider-image"/>
+        )
+      } else {
+        return(
+          <SliderText text={slide.value} key={index} className="p-2 slider-text"/>
+      )
+    }
   })
     return (
     <Slider {...settings}>
@@ -71,4 +80,4 @@ const Carousel = ({imagesPerSlide, images}) => {
 }
  
 
-export default Carousel;
+export default ProjectCarousal;

@@ -1,4 +1,4 @@
-import Carousel from "../components/common/Carousel";
+
 
 class index extends React.Component {
   render() {
@@ -11,13 +11,6 @@ class index extends React.Component {
             Perferendis, itaque?
           </p>
         </div>
-
-        <div className="w-1/2">
-          <div className="bg-blue-500 ">
-            <Carousel />
-          </div>
-        </div>
-      </div>
     );
   }
 }

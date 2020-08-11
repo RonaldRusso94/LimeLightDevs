@@ -10,9 +10,6 @@ body {
   transform: scaleX(-1);
 }
 
-.slick-dots {
-  top: 80%;
-}
 
 .centerAlign {
   flex-direction: column;
@@ -21,7 +18,7 @@ body {
   justify-content: center;
 }
 
-.slider-image img {
+.slider-center {
   margin: 0 auto;
 }
 
@@ -29,4 +26,25 @@ body {
   margin: 0 auto;
   border: solid 1px rgba(76,50,253,.05)
 }
+
+.slider-text { 
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  border: solid 1px rgba(76,50,253,.05);
+  height: 10vh;
+  /* min-height: 5%;
+  min-width: 10%; */
+  background-color: #5f9ea0;
+  color: antiquewhite;
+  font-size: 2rem;
+}
+
+.slick-dots{
+  top: 80%;
+  width: 90% !important;
+}
+
+
 
