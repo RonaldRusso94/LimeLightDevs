@@ -55,7 +55,7 @@ const ProjectCarousal = ({numberPerSlide, slideValues}) => {
         breakpoint: 480,
         settings: {
           ...baseSettings,
-          draggable: true,
+          dots: false,
           slidesToShow: Math.min(1, slidesToShow)
         }
       }

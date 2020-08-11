@@ -15,6 +15,10 @@
   line-height: 20px !important;
 }
 
+.slick-dots {
+  top: 90%;
+}
+
 .font-none {
   font-size: 0;
 }
@@ -51,9 +55,3 @@
   color: antiquewhite;
   font-size: 2rem;
 }
-
-.slick-dots {
-  top: 80%;
-  width: 90% !important;
-}
-/* End of Zolt's Carousal */
