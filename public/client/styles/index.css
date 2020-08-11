@@ -10,10 +10,14 @@
   transform: scaleX(-1);
 }
 
-/* .slick-dots li button::before {
+.slick-dots li button::before {
   font-size: 20px !important;
   line-height: 20px !important;
-} */
+}
+
+.slick-dots {
+  top: 90%;
+}
 
 .font-none {
   font-size: 0;
@@ -52,7 +56,3 @@
   font-size: 2rem;
 }
 
-.slick-dots {
-  top: 80%;
-  width: 90% !important;
-}
