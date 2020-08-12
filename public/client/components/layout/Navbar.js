@@ -50,9 +50,16 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href="portfolio">
+          <Link href="/portfolio">
             <a className="block p-2" href="#">
               Portfolio
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/packages">
+            <a className="block p-2" href="#">
+              Packages
             </a>
           </Link>
         </li>

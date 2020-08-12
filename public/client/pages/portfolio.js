@@ -1,9 +1,7 @@
-import ProjectCarousal from "../components/ProjectCarousal";
 import Layout from "../components/layout/Layout";
-import React, { Component } from "react";
-import ImageContainer from "../components/ImageContainer";
+import ProjectCarousal from "../components/ProjectCarousal";
 
-const services = (props) => {
+const portfolio = () => {
   // TODO REPLACE WITH API CALL
   const images = [
     {
@@ -60,28 +58,11 @@ const services = (props) => {
   return (
     <Layout>
       <div className="md:mx-8 mx-1 bg-green-400 p-4">
-        Services.js
         <ProjectCarousal slideValues={images} numberPerSlide="5" />
         <ProjectCarousal slideValues={text} numberPerSlide="5" />
-        <ImageContainer
-          className="mt-16"
-          title={"Website"}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
-          }
-          img={"http://placekitten.com/g/400/200"}
-        />
-        <ImageContainer
-          className="flex-row-reverse"
-          title={"Mobile Apps"}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
-          }
-          img={"http://placekitten.com/g/400/200"}
-        />
       </div>
     </Layout>
   );
 };
 
-export default services;
+export default portfolio;
