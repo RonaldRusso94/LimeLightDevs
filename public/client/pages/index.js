@@ -7,7 +7,7 @@ import PackageDeal from "../components/PackageDeal";
 import Packages from "../components/Packages";
 import ContactFormSecondary from "../components/ContactFormSeconday";
 import ContactFormPrimary from "../components/ContactFormPrimary";
-import * as Image from "../components/Image/Image";
+import ImageContainer from "../components/ImageContainer";
 
 class index extends React.Component {
   render() {
@@ -19,16 +19,21 @@ class index extends React.Component {
           <Hero />
           <ContactFormSecondary />
           <Packages />
-          {/* (!) Examples for using the Image Component  */}
-          <Image.Container className="mt-10 p-4">
-            <Image.Component
-              src="http://placekitten.com/g/400/200"
-              alt="A cute kitten :D"
-            />
-            <Image.Section className="px-4 py-2">
-              <p>An image</p>
-            </Image.Section>
-          </Image.Container>
+          <ImageContainer
+            title={"Website"}
+            description={
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
+            }
+            img={"http://placekitten.com/g/400/200"}
+          />
+          <ImageContainer
+            className="flex-row-reverse"
+            title={"Mobile Apps"}
+            description={
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
+            }
+            img={"http://placekitten.com/g/400/200"}
+          />
           {/* <ContactFormPrimary /> */}
         </div>
       </Layout>
