@@ -2,32 +2,19 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+import { validationFunction, initialValuesFunction } from "./FormFormFunctions";
+
 const FormikForm = ({ fields }) => {
-  // Defining {obj.name: ""}
   let initialValuesObj = {};
-  const initialValuesFunction = (arrOfObjs) => {
-    arrOfObjs.map((obj) => {
-      let newobj = { [obj.name]: "" };
-      return (initialValuesObj = { ...initialValuesObj, ...newobj });
-    });
-  };
+  // initialValuesObj = {[obj.name]: "", ...}
+  initialValuesFunction(initialValuesObj, fields);
 
-  // Defining [{name: "", rules:[{}], yupType: ""}, ...]
   let validationArr = [];
-  const validationFunction = (arrOfObjs) => {
-    arrOfObjs.map((obj) => {
-      return validationArr.push({
-        name: obj.name,
-        rules: obj.rules,
-        yupType: obj.yupType,
-      });
-    });
-  };
-
-  validationFunction(fields);
-  initialValuesFunction(fields);
+  // Defining [{name: "", rules:[{}], yupType: ""}, ...]
+  validationFunction(validationArr, fields);
 
   const validationObject = {};
+  // Sets [item.name]: Yup[item.yupType]
   validationArr.forEach((item) => {
     validationObject[item.name] = Yup[item.yupType];
   });

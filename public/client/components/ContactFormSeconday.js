@@ -12,9 +12,7 @@ const ContactFormSeconday = () => {
           reprehenderit quaerat accusantium distinctio. In voluptatem commodi
           aliquam harum voluptatum possimus?
         </p>
-        {/* <ContactForm /> */}
         <FormikForm
-          // firstName={{ name: "firstName", errorMessage: "test" }}
           fields={[
             {
               name: "firstName",
@@ -37,7 +35,7 @@ const ContactFormSeconday = () => {
               ],
             },
           ]}
-        ></FormikForm>
+        />
       </div>
     </div>
   );
