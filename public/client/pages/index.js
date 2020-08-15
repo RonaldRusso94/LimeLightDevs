@@ -8,37 +8,38 @@ import Packages from "../components/Packages";
 import ContactFormSecondary from "../components/ContactFormSeconday";
 import ContactFormPrimary from "../components/ContactFormPrimary";
 import ImageContainer from "../components/ImageContainer";
-
+import PortfolioGrid from "../components/PortfolioGrid";
 class index extends React.Component {
-  render() {
-    return (
-      <Layout>
-        <div className="md:mx-8 mx-1 bg-green-400 p-4">
-          Index.js
+    render() {
+        return (
+            <Layout>
+                <div className="md:mx-8 mx-1 bg-green-400 p-4">
+                    Index.js
           {/* <div className="md:mx-8 mx-2"> */}
-          <Hero />
-          <ContactFormSecondary />
-          <Packages />
-          <ImageContainer
-            title={"Website"}
-            description={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
-            }
-            img={"http://placekitten.com/g/400/200"}
-          />
-          <ImageContainer
-            className="flex-row-reverse"
-            title={"Mobile Apps"}
-            description={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
-            }
-            img={"http://placekitten.com/g/400/200"}
-          />
-          {/* <ContactFormPrimary /> */}
-        </div>
-      </Layout>
-    );
-  }
+                    <Hero />
+                    <ContactFormSecondary />
+                    <Packages />
+                    <ImageContainer
+                        title={"Website"}
+                        description={
+                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
+                        }
+                        img={"http://placekitten.com/g/400/200"}
+                    />
+                    <ImageContainer
+                        className="flex-row-reverse"
+                        title={"Mobile Apps"}
+                        description={
+                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
+                        }
+                        img={"http://placekitten.com/g/400/200"}
+                    />
+                    <ContactFormPrimary />
+                    <PortfolioGrid />
+                </div>
+            </Layout>
+        );
+    }
 }
 
 export default index;
