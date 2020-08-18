@@ -63,6 +63,24 @@ const packageGroupsData = [
   },
 ];
 
+const PackageGroupSelector = ({ activeGroup, setActiveGroup, groups }) => {
+  return (
+    <div className="flex flex-wrap justify-center">
+      {groups?.map((group) => (
+        <button
+          onClick={() => setActiveGroup(group)}
+          className={`m-1 p-2 rounded border-2 ${
+            group == activeGroup ? "bg-blue-500 text-white" : ""
+          }`}
+          key={group}
+        >
+          {group}
+        </button>
+      ))}
+    </div>
+  );
+};
+
 const Packages = () => {
   const [packageGroups] = useState(packageGroupsData);
   const [activeGroup, setActiveGroup] = useState("");
@@ -73,7 +91,9 @@ const Packages = () => {
   }, [packageGroups]);
 
   useEffect(() => {
-    setVisiblePackageGroup(packageGroups?.find((p) => p.name == activeGroup));
+    setVisiblePackageGroup(
+      packageGroups?.find((packageGroup) => packageGroup.name == activeGroup)
+    );
   }, [activeGroup, packageGroups]);
 
   return (
@@ -96,9 +116,11 @@ const Packages = () => {
         }}
       />
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:gap-8 gap-4 xl:gap-0 mx-8 sm:mx-0 lg:mx-6 xl:mx-64 mt-8">
+      <div className="flex flex-wrap justify-center">
         {visiblePackageGroup?.packages.map((packageItem) => (
-          <PackageDeal key={packageItem.title} {...packageItem} />
+          <div key={packageItem.title} className="py-4 px-0 sm:px-4">
+            <PackageDeal {...packageItem} />
+          </div>
         ))}
       </div>
     </div>
@@ -106,21 +128,3 @@ const Packages = () => {
 };
 
 export default Packages;
-
-function PackageGroupSelector({ activeGroup, setActiveGroup, groups }) {
-  return (
-    <div className="flex flex-wrap justify-center">
-      {groups?.map((group) => (
-        <button
-          onClick={() => setActiveGroup(group)}
-          className={`m-1 p-2 rounded border-2 ${
-            group == activeGroup ? "bg-blue-500 text-white" : ""
-          }`}
-          key={group}
-        >
-          {group}
-        </button>
-      ))}
-    </div>
-  );
-}

@@ -2,7 +2,7 @@ import Button from "./common/Button";
 
 const PackageDeal = ({ title, originalPrice, price, description, details }) => {
   return (
-    <div className="bg-white text-center rounded px-4 sm:px-2 xl:px-8 py-2 flex flex-col justify-between shadow-xl max-w-xs">
+    <div className="bg-white text-center rounded px-4 sm:px-2 xl:px-8 py-2 flex flex-col justify-between shadow-xl max-w-xs h-full">
       <h2 className="text-2xl py-3">{title}</h2>
       <p className="line-through">{`$${originalPrice}`}</p>
       <p className=" text-3xl font-bold py-1">{`$${price}`}</p>
