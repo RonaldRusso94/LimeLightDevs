@@ -2,7 +2,7 @@ import React from "react";
 
 const GridItem = ({ img }) => {
     return <div>
-        <img src={img} alt="portfolio image" />
+        <img src={img} />
     </div>
 }
 
