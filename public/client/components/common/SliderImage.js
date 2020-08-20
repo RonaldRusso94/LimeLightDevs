@@ -5,8 +5,12 @@ const SliderImage = (props) => {
     <div className={props.className}>
       <img
         src={props.image}
-        alt="Image Not Found"
-        className={props.rounded ? "rounded w-full" : "slider-center"}
+        alt={props.alt !== undefined ? props.alt : "Image Not Found"}
+        className={
+          props.imageClassName !== undefined
+            ? props.imageClassName
+            : "slider-center"
+        }
       />
     </div>
   );

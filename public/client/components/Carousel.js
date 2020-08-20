@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import Slider from "react-slick";
@@ -17,7 +17,11 @@ const Carousel = ({ slides }) => {
     <Slider {...settings}>
       {slides.map((slide, index) => (
         <div key={index}>
-          <SliderImage rounded image={slide.src} alt={slide.alt} />
+          <SliderImage
+            imageClassName="rounded w-full"
+            image={slide.src}
+            alt={slide.alt}
+          />
         </div>
       ))}
     </Slider>
