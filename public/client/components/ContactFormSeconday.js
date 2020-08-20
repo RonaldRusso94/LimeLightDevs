@@ -1,5 +1,6 @@
-import ContactForm from "./ContactForm";
 import FormikForm from "./formik/FormikForm";
+import * as Yup from "yup";
+
 const ContactFormSeconday = () => {
   return (
     <div className="bg-purple-600 py-4 flex">
@@ -15,24 +16,42 @@ const ContactFormSeconday = () => {
         <FormikForm
           fields={[
             {
+              className: "",
+              fieldClass: "",
+              initialValue: "",
               name: "firstName",
               type: "text",
               placeholder: "First Name",
-              errorMsg: "Error First",
-              yupType: "string",
-              rules: [
-                { ruleType: "min", ruleMsg: "Must be 3 characters or more" },
-              ],
+              validationFunction: Yup.string()
+                .min(5, "Must be 5 characters or more")
+                .max(20, "Must be 20 characters or less")
+                .required("Required"),
             },
             {
+              fieldClass: "",
+              initialValue: "",
               name: "lastName",
               type: "text",
               placeholder: "Last Name",
-              errorMsg: "Error Last",
-              yupType: "string",
-              rules: [
-                { ruleType: "min", ruleMsg: "Must be 4 characters or more" },
-              ],
+              validationFunction: Yup.string()
+                .min(5, "Must be 5 characters or more")
+                .max(20, "Must be 20 characters or less")
+                .required("Required"),
+            },
+            {
+              fieldClass: "",
+              initialValue: "",
+              name: "email",
+              type: "email",
+              placeholder: "Your Email",
+              validationFunction: Yup.string()
+                .email("Invalid email address")
+                .required("Required"),
+            },
+            {
+              name: "phone",
+              type: "number",
+              placeholder: "Your Phone",
             },
           ]}
         />
