@@ -1,131 +1,124 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import PropTypes from "prop-types";
 
-const FormikForm = ({ fields }) => {
-  // Defining {obj.name: ""}
-  let initialValuesObj = {};
-  const initialValuesFunction = (arrOfObjs) => {
-    arrOfObjs.map((obj) => {
-      let newobj = { [obj.name]: "" };
-      return (initialValuesObj = { ...initialValuesObj, ...newobj });
-    });
-  };
+const FormikForm = ({
+  fields,
+  onSubmit,
+  formClass,
+  buttonClass,
+  sectionClass,
+  fieldClass,
+}) => {
+  const initialValues = fields.reduce((initialFieldValues, field) => {
+    initialFieldValues[field.name] = field.initialValue || "";
+    return initialFieldValues;
+  }, {});
 
-  // Defining [{name: "", rules:[{}], yupType: ""}, ...]
-  let validationArr = [];
-  const validationFunction = (arrOfObjs) => {
-    arrOfObjs.map((obj) => {
-      return validationArr.push({
-        name: obj.name,
-        rules: obj.rules,
-        yupType: obj.yupType,
-      });
-    });
-  };
+  const validationSchema = fields
+    .filter((field) => typeof field.validationFunction !== "undefined")
+    .reduce((validationFunctions, field) => {
+      validationFunctions[field.name] = field.validationFunction || "";
+      return validationFunctions;
+    }, {});
 
-  validationFunction(fields);
-  initialValuesFunction(fields);
+  if (typeof onSubmit !== "function") {
+    onSubmit = (values, { setSubmitting }) => {
+      setTimeout(() => {
+        alert(JSON.stringify(values, null, 2));
+        setSubmitting(false);
+      }, 400);
+    };
+  }
+  // debugger;
+  // const formsFields = fields.map(
+  //   (
+  //     {
+  //       name,
+  //       type,
+  //       placeholder,
+  //       errorMessageComponent,
+  //       fieldClass,
+  //       sectionClass,
+  //     },
+  //     index
+  //   ) => {
+  //     return (
+  //       <div className={sectionClass || ""}>
+  //         <Field
+  //           type={type}
+  //           name={name}
+  //           placeholder={placeholder || ""}
+  //           className={fieldClass || "rounded py-1 px-2"}
+  //           key={index}
+  //         />
+  //         <ErrorMessage name={name} />
+  //       </div>
+  //     );
+  //   }
+  // );
 
-  const validationObject = {};
-  validationArr.forEach((item) => {
-    validationObject[item.name] = Yup[item.yupType];
-  });
-
-  const validationRule = (arrOfObjs) => {
-    arrOfObjs.map((obj) => {
-      obj.rules.map((rule) => {
-        // validationObject[rule.ruleType];
-        console.log("rule :>> ", rule);
-      });
-    });
-  };
-
-  validationRule(fields);
-  console.log("validationArr :>> ", validationArr);
-  console.log("validationObject :>> ", validationObject);
   return (
     <Formik
-      initialValues={
-        // initialValuesObj
-        { firstName: "", lastName: "", email: "", phoneNumber: "" }
-      }
-      validationSchema={
-        Yup.object(validationObject || {})
-
-        // Yup.object({
-        //   firstName: Yup.string()
-        //     .min(3, "Must be 3 characters or more")
-        //     .max(20, "Must be 20 characters or less")
-        //     .required("Required"),
-
-        //   lastName: Yup.string()
-        //     .min(3, "Must be 3 characters or more")
-        //     .max(20, "Must be 20 characters or less")
-        //     .required("Required"),
-        //   email: Yup.string()
-        //     .email("Invalid email address")
-        //     .required("Required"),
-        // })
-      }
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
-      }}
+      initialValues={initialValues}
+      validationSchema={Yup.object(validationSchema)}
+      onSubmit={onSubmit}
     >
       {({ isSubmitting }) => (
-        <Form className="">
-          <div className="grid grid-cols-2 gap-4 my-4">
-            <div className=" flex flex-col">
-              <Field
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                className="rounded py-1 px-2"
-              />
-              <ErrorMessage name="firstName" />
-            </div>
-
-            <div className=" flex flex-col">
-              <Field
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                className="rounded py-1 px-2"
-              />
-              <ErrorMessage name="lastName" component="div" />
-            </div>
-
-            <Field
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="rounded py-1 px-2"
-            />
-            <ErrorMessage name="email" component="div" />
-
-            <Field
-              type="number"
-              name="phoneNumber"
-              placeholder="Phone Number"
-              className="rounded py-1 px-2"
-            />
-            <ErrorMessage name="phoneNumber" component="div" />
+        <Form>
+          <div className={formClass}>
+            {fields.map(
+              (
+                {
+                  name,
+                  type,
+                  placeholder,
+                  classname,
+                  sectionClass,
+                  fieldClass,
+                },
+                index
+              ) => {
+                return (
+                  <div className={sectionClass}>
+                    <Field
+                      type={type}
+                      name={name}
+                      placeholder={placeholder || ""}
+                      className={fieldClass || ""}
+                      key={index}
+                    />
+                    <ErrorMessage name={name} />
+                  </div>
+                );
+              }
+            )}
           </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className=" bg-pink-500 block w-full rounded py-1"
-          >
+          <button type="submit" disabled={isSubmitting} className={buttonClass}>
             Submit
           </button>
         </Form>
       )}
     </Formik>
   );
+};
+
+FormikForm.propTypes = {
+  fields: PropTypes.array,
+  classname: PropTypes.string,
+  formClass: PropTypes.string,
+  sectionClass: PropTypes.string,
+  fieldClass: PropTypes.string,
+  buttonClass: PropTypes.string,
+};
+
+FormikForm.defaultProps = {
+  classname: "",
+  formClass: "grid grid-cols-2 gap-4 my-4 bg-red-500",
+  sectionClass: "",
+  fieldClass: "rounded py-1 px-2",
+  buttonClass: "bg-pink-500 block w-full rounded py-1",
 };
 
 export default FormikForm;

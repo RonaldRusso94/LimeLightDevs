@@ -1,4 +1,4 @@
-import FormikForm from "./formik/FormikFormTyler";
+import FormikForm from "./formik/FormikForm";
 import * as Yup from "yup";
 
 const ContactFormSeconday = () => {
@@ -15,11 +15,10 @@ const ContactFormSeconday = () => {
         </p>
         {/* <ContactForm /> */}
         <FormikForm
-          // firstName={{ name: "firstName", errorMessage: "test" }}
           fields={[
             {
               className: "",
-              fieldDivClass: "",
+              fieldClass: "",
               initialValue: "",
               name: "firstName",
               type: "text",
@@ -49,7 +48,6 @@ const ContactFormSeconday = () => {
               validationFunction: Yup.string()
                 .email("Invalid email address")
                 .required("Required"),
-
             },
             {
               name: "phone",
