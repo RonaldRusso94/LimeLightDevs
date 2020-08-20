@@ -1,6 +1,21 @@
 import Carousel from "../components/Carousel";
 
 const Hero = () => {
+  const slides = [
+    {
+      src: "http://placekitten.com/g/400/200",
+      alt: "A cute image of a kitten",
+    },
+    {
+      src: "http://placekitten.com/g/400/200",
+      alt: "A cute image of a kitten",
+    },
+    {
+      src: "http://placekitten.com/g/400/200",
+      alt: "A cute image of a kitten",
+    },
+  ];
+
   return (
     <div className="">
       <div className="lg:flex-row flex-col flex px-8 md:px-12 py-16 md:py-20 bg-white justify-between">
@@ -39,7 +54,7 @@ const Hero = () => {
 
         <div className="w-full md:w-3/4 lg:w-1/2 mx-auto mt-8 lg:my-auto">
           <div className="font-none shadow-xl">
-            <Carousel />
+            <Carousel slides={slides} />
           </div>
         </div>
       </div>
