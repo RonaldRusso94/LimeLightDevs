@@ -3,37 +3,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import PropTypes from "prop-types";
 
-<<<<<<< HEAD
-import { validationFunction, initialValuesFunction } from "./FormFormFunctions";
-
-const FormikForm = ({ fields }) => {
-  let initialValuesObj = {};
-  // initialValuesObj = {[obj.name]: "", ...}
-  initialValuesFunction(initialValuesObj, fields);
-
-  let validationArr = [];
-  // Defining [{name: "", rules:[{}], yupType: ""}, ...]
-  validationFunction(validationArr, fields);
-
-  const validationObject = {};
-  // Sets [item.name]: Yup[item.yupType]
-  validationArr.forEach((item) => {
-    validationObject[item.name] = Yup[item.yupType];
-  });
-
-  const validationRule = (arrOfObjs) => {
-    arrOfObjs.map((obj) => {
-      obj.rules.map((rule) => {
-        // validationObject[rule.ruleType];
-        console.log("rule :>> ", rule);
-      });
-    });
-  };
-
-  validationRule(fields);
-  console.log("validationArr :>> ", validationArr);
-  console.log("validationObject :>> ", validationObject);
-=======
 const FormikForm = ({
   fields,
   onSubmit,
@@ -90,7 +59,6 @@ const FormikForm = ({
   //   }
   // );
 
->>>>>>> formic-wrapper
   return (
     <Formik
       initialValues={initialValues}
