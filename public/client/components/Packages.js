@@ -2,7 +2,7 @@ import PackageDeal from "./PackageDeal";
 import { useState, useEffect } from "react";
 
 // TODO get this from server
-const packageGroupsData = [
+export const packageGroupsData = [
   {
     name: "Web Design",
     packages: [
