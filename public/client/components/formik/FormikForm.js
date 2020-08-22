@@ -67,27 +67,29 @@ const FormikForm = ({
     >
       {({ isSubmitting }) => (
         <Form>
-          <div className={formClass}>
+          <div className={formClass || "flex flex-col my-4"}>
             {fields.map(
-              (
-                {
-                  name,
-                  type,
-                  placeholder,
-                  classname,
-                  sectionClass,
-                  fieldClass,
-                },
-                index
-              ) => {
+              ({
+                name,
+                type,
+                placeholder,
+                classname,
+                sectionClass,
+                fieldClass,
+              }) => {
                 return (
-                  <div className={sectionClass}>
+                  <div
+                    className={
+                      sectionClass ||
+                      "flex flex-col justify-center items-center"
+                    }
+                  >
                     <Field
                       type={type}
                       name={name}
                       placeholder={placeholder || ""}
-                      className={fieldClass || ""}
-                      key={index}
+                      className={fieldClass || "w-10/12 rounded my-2 py-1 px-2"}
+                      key={name}
                     />
                     <ErrorMessage name={name} />
                   </div>
@@ -115,9 +117,9 @@ FormikForm.propTypes = {
 
 FormikForm.defaultProps = {
   classname: "",
-  formClass: "grid grid-cols-2 gap-4 my-4 bg-red-500",
+  formClass: "",
   sectionClass: "",
-  fieldClass: "rounded py-1 px-2",
+  fieldClass: "",
   buttonClass: "bg-pink-500 block w-full rounded py-1",
 };
 
