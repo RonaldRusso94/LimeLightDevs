@@ -3,8 +3,8 @@ import * as Yup from "yup";
 
 const ContactFormSeconday = () => {
   return (
-    <div className="bg-purple-600 p-4 sm:flex">
-      <div className=" flex flex-col justify-center items-center sm:w-1/2 sm:px-4  my-4">
+    <div className="bg-purple-600 p-4 my-8 sm:flex xl:mx-32">
+      <div className=" flex flex-col justify-center items-center sm:w-1/2 sm:px-4 my-4">
         <img src="http://placekitten.com/g/400/200" alt="" />
         <p className="text-xs sm:text-base text-center sm:mt-6">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, iste!
