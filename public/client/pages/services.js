@@ -98,7 +98,7 @@ const services = (props) => {
         <div className="block mb-16">
           <ProjectCarousal slideValues={images} numberPerSlide="5" />
         </div>
-        <div className="px-16 py-8">
+        <div className="sm:px-16 py-8">
           <div className="mb-8">
             <ImageContainer
               content={
