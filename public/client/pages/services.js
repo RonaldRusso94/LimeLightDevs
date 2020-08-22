@@ -101,7 +101,7 @@ const services = (props) => {
         <div className="px-16 py-8">
           <div className="mb-8">
             <ImageContainer
-              className="flex-row-reverse"
+              className="sm:flex-row-reverse flex-col"
               title={"Web"}
               description={
                 "All the way from a simple static website to a functional web application with lots of features along with the modern trends and requirements."
@@ -113,6 +113,7 @@ const services = (props) => {
           </div>
           <div>
             <ImageContainer
+              className="sm:flex-row flex-col"
               title={"Mobile Apps"}
               description={"Building a powerful mobile app "}
               img={
