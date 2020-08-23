@@ -3,6 +3,7 @@ import Layout from "../components/layout/Layout";
 import React, { Component } from "react";
 import ImageContainer from "../components/ImageContainer";
 import ContactFormPrimary from "../components/ContactFormPrimary";
+import ServicesInfo from "../components/ServicesInfo";
 
 const services = (props) => {
   // TODO REPLACE WITH API CALL
@@ -102,33 +103,22 @@ const services = (props) => {
           <div className="mb-8">
             <ImageContainer
               content={
-                <div className="px-8 mb-8">
-                  <h1 className="text-4xl mb-6">Web</h1>
-                  <div className="w-3/4">
-                    <p className="text-lg">
-                      All the way from a simple static website to a functional
-                      web application with lots of features along with the
-                      modern trends and requirements.
-                    </p>
-                  </div>
-                  <ul className="ml-6 my-8 text-lg list-disc">
-                    <li>Static Web Pages</li>
-                    <li>E-Commerce Web Application</li>
-                    <li>Social Media Web Application</li>
-                  </ul>
-                  <a
-                    href="#"
-                    className="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded"
-                  >
-                    See projects
-                  </a>
-                </div>
+                <ServicesInfo
+                  title={`Web Applications`}
+                  description={`
+                All the way from a simple static website to a functional
+                web application with lots of features along with the
+                modern trends and requirements.
+                  `}
+                  features={[
+                    "Static Web Pages",
+                    "E-Commerce Web Applications",
+                    "Social Media Web Applications",
+                  ]}
+                  button={`See Projects`}
+                />
               }
               className="sm:flex-row-reverse flex-col"
-              // title={"Web"}
-              // description={
-              //   "All the way from a simple static website to a functional web application with lots of features along with the modern trends and requirements."
-              // }
               img={
                 "https://images.unsplash.com/photo-1593642634443-44adaa06623a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80"
               }
@@ -138,29 +128,20 @@ const services = (props) => {
             <ImageContainer
               className="sm:flex-row flex-col"
               content={
-                <div className="px-4 md:px-8 mb-8 md:mb-0">
-                  <h1 className="text-2xl md:text-4xl mb-2 md:mb-6">
-                    Mobile apps
-                  </h1>
-                  <div className="w-3/4">
-                    <p className="text-lg">
-                      All the way from a simple mobile apps to a functional
-                      mobile application with lots of features along with the
-                      modern trends and requirements of the market.
-                    </p>
-                  </div>
-                  <ul className="ml-6 my-8 text-lg list-disc">
-                    <li>Simple Mobile Apps</li>
-                    <li>E-Commerce Mobile Applications</li>
-                    <li>Social Media Application</li>
-                  </ul>
-                  <a
-                    href="#"
-                    className="bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded"
-                  >
-                    See projects
-                  </a>
-                </div>
+                <ServicesInfo
+                  title={`Mobile apps`}
+                  description={`
+                    All the way from a simple mobile apps to a functional
+                    mobile application with lots of features along with the
+                    modern trends and requirements of the market. 
+                    `}
+                  features={[
+                    "Simple Mobile Apps",
+                    "E-Commerce Mobile Applications",
+                    "Social Media Application",
+                  ]}
+                  button={`See Projects`}
+                />
               }
               // title={"Mobile Apps"}
               // description={"Building a powerful mobile app "}
