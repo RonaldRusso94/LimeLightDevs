@@ -1,55 +1,40 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
+
 import Slider from "react-slick";
+import SliderImage from "./common/SliderImage";
 
-export class Carousel extends Component {
-  render() {
-    // var settings = {
-    //   dots: true,
-    //   infinite: true,
-    //   speed: 500,
-    //   slidesToShow: 1,
-    //   slidesToScroll: 1,
-    // };
-    // var settings = {
-    //   // centerMode: true,
-    //   dots: true,
-    //   arrows: true,
-    //   fade: true,
-    //   variableWidth: true,
-    //   // autoplay: true,
-    //   // autoplaySpeed: 5000,
-    // };
+const Carousel = ({ slides }) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
-    return (
-      <Slider {...settings}>
-        <div>
-          <img
-            className="rounded w-full"
-            src="http://placekitten.com/g/400/200"
+  return (
+    <Slider {...settings}>
+      {slides.map((slide, index) => (
+        <div key={index}>
+          <SliderImage
+            imageClassName="rounded w-full"
+            image={slide.src}
+            alt={slide.alt}
           />
         </div>
-        <div>
-          <img
-            className="rounded w-full"
-            src="http://placekitten.com/g/400/200"
-          />
-        </div>
-        <div>
-          <img
-            className="rounded w-full"
-            src="http://placekitten.com/g/400/200"
-          />
-        </div>
-      </Slider>
-    );
-  }
-}
+      ))}
+    </Slider>
+  );
+};
+
+Carousel.propTypes = {
+  slides: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+};
 
 export default Carousel;

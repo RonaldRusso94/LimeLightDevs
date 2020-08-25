@@ -59,6 +59,7 @@ const ProjectCarousal = ({ numberPerSlide, slideValues }) => {
         settings: {
           ...baseSettings,
           dots: false,
+          arrows: true,
           slidesToShow: Math.min(1, slidesToShow),
         },
       },

@@ -55,3 +55,9 @@
   color: antiquewhite;
   font-size: 2rem;
 }
+
+@media(max-width: 640px){
+  .hide-phone{
+    display: none;
+  }
+}
