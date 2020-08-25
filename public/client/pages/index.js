@@ -7,7 +7,7 @@ import PackageDeal from "../components/PackageDeal";
 import Packages from "../components/Packages";
 import ContactFormSecondary from "../components/ContactFormSeconday";
 import ContactFormPrimary from "../components/ContactFormPrimary";
-import ImageContainer from "../components/ImageContainer";
+import ImageGrid from "../components/ImageGrid";
 
 class index extends React.Component {
   render() {
@@ -19,15 +19,16 @@ class index extends React.Component {
           <Hero />
           <ContactFormSecondary />
           <Packages />
-          <ImageContainer
+          <ImageGrid
             title={"Website"}
+            className="sm:flex-row"
             description={
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
             }
             img={"http://placekitten.com/g/400/200"}
           />
-          <ImageContainer
-            className="flex-row-reverse"
+          <ImageGrid
+            className="sm:flex-row-reverse"
             title={"Mobile Apps"}
             description={
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."

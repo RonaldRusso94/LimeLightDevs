@@ -1,6 +1,6 @@
 import React from "react";
 
-const ImageContainer = ({
+const ImageGrid = ({
   children,
   className,
   content,
@@ -9,7 +9,7 @@ const ImageContainer = ({
   img,
 }) => {
   return (
-    <div className={`${className} flex`}>
+    <div className={`${className} flex flex-col my-4 sm:my-0`}>
       <div className="sm:w-1/2 flex flex-col items-center justify-center">
         {content}
         <h1 className="text-2xl">{title}</h1>
@@ -22,4 +22,4 @@ const ImageContainer = ({
   );
 };
 
-export default ImageContainer;
+export default ImageGrid;

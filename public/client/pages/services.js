@@ -1,7 +1,7 @@
 import ProjectCarousal from "../components/ProjectCarousal";
 import Layout from "../components/layout/Layout";
 import React, { Component } from "react";
-import ImageContainer from "../components/ImageContainer";
+import ImageGrid from "../components/ImageGrid";
 import ContactFormPrimary from "../components/ContactFormPrimary";
 import ServicesInfo from "../components/ServicesInfo";
 
@@ -101,7 +101,7 @@ const services = (props) => {
         </div>
         <div className="sm:px-16 py-8">
           <div className="mb-8">
-            <ImageContainer
+            <ImageGrid
               content={
                 <ServicesInfo
                   title={`Web Applications`}
@@ -125,7 +125,7 @@ const services = (props) => {
             />
           </div>
           <div>
-            <ImageContainer
+            <ImageGrid
               className="sm:flex-row flex-col"
               content={
                 <ServicesInfo
@@ -151,12 +151,12 @@ const services = (props) => {
             />
           </div>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="">
           <ContactFormPrimary />
         </div>
         {/* <ProjectCarousal slideValues={images} numberPerSlide="5" />
         <ProjectCarousal slideValues={text} numberPerSlide="5" /> */}
-        {/* <ImageContainer
+        {/* <ImageGrid
           className="mt-16"
           title={"Website"}
           description={
