@@ -16,9 +16,7 @@ const ImageContainer = ({
         <p>{description}</p>
       </div>
       <div className="sm:w-1/2 flex flex-col items-center justify-center">
-        <p>
-          <img src={img} alt="cat" />
-        </p>
+        <img className="w-full" src={img} alt="cat" />
       </div>
     </div>
   );
