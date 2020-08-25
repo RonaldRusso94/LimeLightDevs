@@ -41,7 +41,7 @@ class index extends React.Component {
     render() {
         return (
         <Layout>
-            <div className="md:mx-8 mx-1 bg-green-400 p-4">
+            <div className="p-4 mx-1 bg-green-400 md:mx-8">
                 Index.js
                 <Hero />
                 <ContactFormSecondary />
@@ -63,10 +63,10 @@ class index extends React.Component {
                     img={"http://placekitten.com/g/400/200"}
                 />
                 <ContactFormPrimary />
-                <div className="hide-phone">
-                <PortfolioGrid />
+                <div className="my-6 hide-phone">
+                <PortfolioGrid images={images} />
                 </div>
-                <div className="sm:hidden block mb-16">
+                <div className="block mb-16 sm:hidden">
                 <ProjectCarousal slideValues={images} numberPerSlide="1" />
                 </div>
             </div>
