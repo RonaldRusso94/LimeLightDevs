@@ -97,7 +97,7 @@ const Packages = () => {
   }, [activeGroup, packageGroups]);
 
   return (
-    <div className="bg-gray-200 mt-16 p-4">
+    <div className="bg-gray-200 my-8 p-4">
       <div>
         <h1 className="text-3xl font-bold">My Packages</h1>
         <p className="lg:w-10/12">

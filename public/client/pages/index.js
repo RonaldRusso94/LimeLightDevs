@@ -8,8 +8,8 @@ import PackageDeal from "../components/PackageDeal";
 import Packages from "../components/Packages";
 import ContactFormSecondary from "../components/ContactFormSeconday";
 import ContactFormPrimary from "../components/ContactFormPrimary";
-import ImageContainer from "../components/ImageContainer";
 import PortfolioGrid from "../components/PortfolioGrid";
+import ImageGrid from "../components/ImageGrid";
 
 const images = [
     {
@@ -40,40 +40,39 @@ const images = [
 class index extends React.Component {
     render() {
         return (
-            <Layout>
-                <div className="md:mx-8 mx-1 bg-green-400 p-4">
-                    Index.js
-          {/* <div className="md:mx-8 mx-2"> */}
-                    <Hero />
-                    <ContactFormSecondary />
-                    <Packages />
-                    <ImageContainer
-                        title={"Website"}
-                        description={
-                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
-                        }
-                        img={"http://placekitten.com/g/400/200"}
-                    />
-                    <ImageContainer
-                        className="flex-row-reverse"
-                        title={"Mobile Apps"}
-                        description={
-                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
-                        }
-                        img={"http://placekitten.com/g/400/200"}
-                    />
-                    <ContactFormPrimary />
-                    <div className="hide-phone">
-                    <PortfolioGrid />
-                    </div>
-                    <div className="sm:hidden">
-                    <ProjectCarousal slideValues={images} numberPerSlide="1" />
-                    </div>
-
+        <Layout>
+            <div className="md:mx-8 mx-1 bg-green-400 p-4">
+                Index.js
+                <Hero />
+                <ContactFormSecondary />
+                <Packages />
+                <ImageGrid
+                    title={"Website"}
+                    className="sm:flex-row"
+                    description={
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
+                    }
+                    img={"http://placekitten.com/g/400/200"}
+                />
+                <ImageGrid
+                    className="sm:flex-row-reverse"
+                    title={"Mobile Apps"}
+                    description={
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facilis enim molestias non quo excepturi."
+                    }
+                    img={"http://placekitten.com/g/400/200"}
+                />
+                <ContactFormPrimary />
+                <div className="hide-phone">
+                <PortfolioGrid />
                 </div>
-            </Layout>
-        );
-    }
+                <div className="sm:hidden block mb-16">
+                <ProjectCarousal slideValues={images} numberPerSlide="1" />
+                </div>
+            </div>
+      </Layout>
+    );
+  }
 }
 
 export default index;
