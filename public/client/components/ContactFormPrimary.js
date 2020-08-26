@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Field, Form } from "formik";
+import {Formik, Field, Form} from "formik";
 import Input from "../components/common/Input";
 const ContactFormPrimary = () => {
   return (
