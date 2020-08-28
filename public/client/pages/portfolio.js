@@ -57,10 +57,8 @@ const portfolio = () => {
   ];
   return (
     <Layout>
-      <div className="md:mx-8 mx-1 bg-green-400 p-4">
         <ProjectCarousal slideValues={images} numberPerSlide="5" />
         <ProjectCarousal slideValues={text} numberPerSlide="5" />
-      </div>
     </Layout>
   );
 };

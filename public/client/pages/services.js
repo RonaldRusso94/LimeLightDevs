@@ -61,7 +61,6 @@ const services = (props) => {
   ];
   return (
     <Layout>
-      <div className="mx-1 md:mx-8 bg-green-400 px-8 py-4 md:px-12 md:py-8">
         <div className="block mb-4">
           <div className="inline-block">
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6">Services</h1>
@@ -166,7 +165,6 @@ const services = (props) => {
         />
   
         */}
-      </div>
     </Layout>
   );
 };

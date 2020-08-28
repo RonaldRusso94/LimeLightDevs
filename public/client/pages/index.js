@@ -41,7 +41,6 @@ class index extends React.Component {
     render() {
         return (
         <Layout>
-            <div className="p-4 mx-1 bg-green-400 md:mx-8">
                 Index.js
                 <Hero />
                 <ContactFormSecondary />
@@ -68,7 +67,6 @@ class index extends React.Component {
                 </div>
                 <div className="block mb-16 sm:hidden">
                 <ProjectCarousal slideValues={images} numberPerSlide="1" />
-                </div>
             </div>
       </Layout>
     );
