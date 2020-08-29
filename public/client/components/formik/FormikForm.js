@@ -79,6 +79,7 @@ const FormikForm = ({
               }) => {
                 return (
                   <div
+                    key={name}
                     className={
                       sectionClass ||
                       "flex flex-col justify-center items-center"
@@ -89,7 +90,6 @@ const FormikForm = ({
                       name={name}
                       placeholder={placeholder || ""}
                       className={fieldClass || "w-10/12 rounded my-2 py-1 px-2"}
-                      key={name}
                     />
                     <ErrorMessage name={name} />
                   </div>
