@@ -6,7 +6,7 @@ import Link from "next/link";
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   return (
-    <header className="bg-gray-200 w-full z-10 sm:flex">
+    <header className="bg-gray-200 w-full z-10 sm:flex px-2 sm:px-4 lg:px-8">
       <div className="flex justify-between items-center">
         <a href="#">Limelight Devs</a>
 

@@ -1,17 +1,13 @@
-import React from "react";
-
-const GridItem = ({ img }) => {
-    return <div className="mx-2 my-2">
-        <img src={img} className="sm:w-64"/>
-    </div>
-}
-
-const PortfolioGrid = ({images}) => {
-    return <section className="flex flex-wrap content-start lg:mx-20 bg-100">
-        {images.map( image => 
-            <GridItem img={image.value} />
-        )}
+const PortfolioGrid = ({ images }) => {
+  return (
+    <section className="sm:flex flex-wrap justify-center py-4 hidden">
+      {images.map((image) => (
+        <div className="py-2 sm:w-3/12 px-2">
+          <img src={image.value} className=" w-full" />
+        </div>
+      ))}
     </section>
-}
+  );
+};
 
 export default PortfolioGrid;
