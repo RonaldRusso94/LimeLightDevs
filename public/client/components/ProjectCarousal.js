@@ -3,7 +3,7 @@ import React from "react";
 import Slider from "react-slick";
 import SliderImage from "./common/SliderImage";
 import SliderText from "./common/SliderText";
-const ProjectCarousal = ({ numberPerSlide, slideValues }) => {
+const ProjectCarousal = ({ numberPerSlide, slideValues, className}) => {
   if (slideValues === undefined || slideValues.length === 0) {
     console.warn("The slides prop is left undefined, please provide slides");
     slideValues = [
@@ -16,7 +16,7 @@ const ProjectCarousal = ({ numberPerSlide, slideValues }) => {
   const slidesToShow = parseInt(`${numberPerSlide}`, 10) || 1;
 
   const baseSettings = {
-    className: "slider p-8",
+    className: "slider py-8",
     dots: true,
     draggable: true,
     infinite: true,
@@ -84,7 +84,11 @@ const ProjectCarousal = ({ numberPerSlide, slideValues }) => {
       );
     }
   });
-  return <Slider {...settings}>{slides}</Slider>;
+  return (
+  <div className={className || ""}>
+    <Slider {...settings}>{slides}</Slider>
+  </div>
+  );
 };
 
 export default ProjectCarousal;
