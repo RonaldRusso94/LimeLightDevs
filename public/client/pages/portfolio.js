@@ -1,5 +1,7 @@
 import Layout from "../components/layout/Layout";
 import ProjectCarousal from "../components/ProjectCarousal";
+import PageHeader from "../components/PageHeader";
+import ContactFormPrimary from "../components/ContactFormPrimary";
 
 const portfolio = () => {
   // TODO REPLACE WITH API CALL
@@ -57,8 +59,13 @@ const portfolio = () => {
   ];
   return (
     <Layout>
-        <ProjectCarousal slideValues={images} numberPerSlide="5" />
-        <ProjectCarousal slideValues={text} numberPerSlide="5" />
+      <PageHeader
+        title="Works"
+        subtitle="Get perfect logo design or any design in over 90 categories. Whatever your business need or budget, we'll help you."
+      />
+      <ProjectCarousal slideValues={images} numberPerSlide="5" />
+      <ProjectCarousal slideValues={text} numberPerSlide="5" />
+      <ContactFormPrimary />
     </Layout>
   );
 };

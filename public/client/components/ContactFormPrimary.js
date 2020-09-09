@@ -3,7 +3,7 @@ import {Formik, Field, Form} from "formik";
 import Input from "../components/common/Input";
 const ContactFormPrimary = ({className}) => {
   return (
-    <div className={`${className || "grid sm:grid-cols-2 sm:grid-row-1 grid-cols-1 grid-row-2 w-full sm:py-8"}`}>
+    <div className={className || "grid sm:grid-cols-2 sm:grid-row-1 grid-cols-1 grid-row-2 w-full sm:py-8 sm:my-8"}>
       <div className="w-full bg-white card">
         <h2 className="text-4xl font-bold text-left mt-5 mx-3 md:mx-10 mb-10">
           Let's talk business!
