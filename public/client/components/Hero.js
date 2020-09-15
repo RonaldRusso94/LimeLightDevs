@@ -17,18 +17,18 @@ const Hero = () => {
   ];
 
   return (
-    <div className="lg:flex items-center ">
+    <div className="lg:flex items-center  sm:p-10 p-4">
       <div className="w-full lg:w-1/2 text-center xl:px-4">
         <div>
-          <h1 className="text-3xl md:text-5xl mb-4 leading-tight font-bold">
+          <h1 className="text-4xl md:text-5xl mb-8 leading-tight font-bold tracking-tight">
             Website Development For Your Business or Product
           </h1>
           <div className="text-sm md:text-base">
-            <p className="mb-4">
+            <p className="mb-6">
               Limelight is a web development agency specializing in designing
               and building amazing websites for all your website needs.
             </p>
-            <ul className="ml-4 mb-4">
+            <ul className="ml-4 mb-6">
               <li>
                 <p>
                   <span>&#8594;</span> 100% Customer Satisfaction
