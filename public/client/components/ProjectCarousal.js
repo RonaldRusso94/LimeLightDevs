@@ -1,9 +1,7 @@
-import { useRef, useState } from "react";
-import React from "react";
 import Slider from "react-slick";
 import SliderImage from "./common/SliderImage";
 import SliderText from "./common/SliderText";
-const ProjectCarousal = ({ numberPerSlide, slideValues, className}) => {
+const ProjectCarousal = ({ numberPerSlide, slideValues, className }) => {
   if (slideValues === undefined || slideValues.length === 0) {
     console.warn("The slides prop is left undefined, please provide slides");
     slideValues = [
@@ -85,9 +83,9 @@ const ProjectCarousal = ({ numberPerSlide, slideValues, className}) => {
     }
   });
   return (
-  <div className={className || ""}>
-    <Slider {...settings}>{slides}</Slider>
-  </div>
+    <div className={className || ""}>
+      <Slider {...settings}>{slides}</Slider>
+    </div>
   );
 };
 

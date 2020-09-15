@@ -1,5 +1,3 @@
-import React from "react";
-
 const SliderImage = (props) => {
   return (
     <div className={props.className}>

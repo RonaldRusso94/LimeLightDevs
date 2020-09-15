@@ -41,7 +41,6 @@ class index extends React.Component {
   render() {
     return (
       <Layout>
-        Index.js
         <Hero />
         <ContactFormSecondary />
         <Packages />
@@ -63,9 +62,9 @@ class index extends React.Component {
         />
         <ContactFormPrimary />
         <PortfolioGrid images={images} />
-        <div className="block mb-16 sm:hidden">
-          <ProjectCarousal slideValues={images} numberPerSlide="1" />
-        </div>
+        {/* <div className="block mb-16 sm:hidden">
+          <ProjectCarousal slideValues={images} numberPerSlide={1} />
+        </div> */}
       </Layout>
     );
   }

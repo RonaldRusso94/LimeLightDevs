@@ -7,6 +7,7 @@ import SliderImage from "./common/SliderImage";
 const Carousel = ({ slides }) => {
   const settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
