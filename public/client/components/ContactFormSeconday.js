@@ -1,9 +1,10 @@
 import FormikForm from "./formik/FormikForm";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const ContactFormSeconday = () => {
   return (
-    <div className="bg-purple-600 p-4 my-8 sm:flex xl:mx-32">
+    <div className="bg-purple-600 p-4 my-8 sm:flex xl:mx-32 rounded">
       <div className=" flex flex-col justify-center items-center sm:w-1/2 sm:px-4 my-4">
         <img src="http://placekitten.com/g/400/200" alt="" />
         <p className="text-xs sm:text-base text-center sm:mt-6">
@@ -20,7 +21,7 @@ const ContactFormSeconday = () => {
           reprehenderit quaerat accusantium distinctio. In voluptatem commodi
           aliquam harum voluptatum possimus?
         </p>
-        <FormikForm
+        {/* <FormikForm
           fields={[
             {
               formClass: "",
@@ -61,7 +62,79 @@ const ContactFormSeconday = () => {
               placeholder: "Your Phone",
             },
           ]}
-        />
+        /> */}
+
+        <Formik
+          initialValues={{ firstName: "", lastName: "", email: "" }}
+          validationSchema={Yup.object({
+            firstName: Yup.string()
+              .max(15, "Must be 15 characters or less")
+              .required("Required"),
+
+            email: Yup.string()
+              .email("Invalid email address")
+              .required("Required"),
+            phone: Yup.string(),
+            message: Yup.string().min(10, "Must be 10 characters or more"),
+          })}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2));
+              setSubmitting(false);
+            }, 400);
+          }}
+        >
+          <Form>
+            <div className="flex flex-col">
+              <div className="flex flex-col justify-center items-center">
+                <Field
+                  className="w-10/12 rounded my-2 py-1 px-2"
+                  name="name"
+                  placeholder="Name"
+                  type="text"
+                />
+                <ErrorMessage name="name" />
+              </div>
+
+              <div className="flex flex-col justify-center items-center">
+                <Field
+                  className="w-10/12 rounded my-2 py-1 px-2"
+                  name="email"
+                  placeholder="E-mail"
+                  type="email"
+                />
+                <ErrorMessage name="email" />
+              </div>
+              <div className="flex flex-col justify-center items-center">
+                <Field
+                  className="w-10/12 rounded my-2 py-1 px-2"
+                  name="phone"
+                  placeholder="Phone Number"
+                  type="tel"
+                />
+                <ErrorMessage name="phone" />
+              </div>
+
+              <div className="flex flex-col justify-center items-center">
+                <Field
+                  component={"textarea"}
+                  className="w-10/12 rounded my-2 py-1 px-2"
+                  name="message"
+                  type="text"
+                  placeholder="Summary Of Your Site"
+                />
+                <ErrorMessage name="message" />
+              </div>
+
+              <button
+                className="bg-pink-500 block w-full rounded py-1"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </Form>
+        </Formik>
       </div>
     </div>
   );
