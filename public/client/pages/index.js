@@ -10,6 +10,7 @@ import ContactFormSecondary from "../components/ContactFormSeconday";
 import ContactFormPrimary from "../components/ContactFormPrimary";
 import PortfolioGrid from "../components/PortfolioGrid";
 import ImageGrid from "../components/ImageGrid";
+// import WebsitePNG from "../../images/maintenance.png";
 
 const images = [
   {
@@ -42,6 +43,11 @@ class index extends React.Component {
     return (
       <Layout>
         <Hero />
+        <div>
+          <p>test</p>
+          <img className="w-full" src="/maintenance.png" alt="" />
+        </div>
+
         <ContactFormSecondary />
         <Packages />
         <ImageGrid

@@ -23,6 +23,11 @@ const FormikForm = ({
       return validationFunctions;
     }, {});
 
+  const formClassFunction = fields.reduce((initialFieldValues, field) => {
+    initialFieldValues[field.name] = field.initialValue || "";
+    return initialFieldValues;
+  }, {});
+
   if (typeof onSubmit !== "function") {
     onSubmit = (values, { setSubmitting }) => {
       setTimeout(() => {
@@ -31,33 +36,6 @@ const FormikForm = ({
       }, 400);
     };
   }
-  // debugger;
-  // const formsFields = fields.map(
-  //   (
-  //     {
-  //       name,
-  //       type,
-  //       placeholder,
-  //       errorMessageComponent,
-  //       fieldClass,
-  //       sectionClass,
-  //     },
-  //     index
-  //   ) => {
-  //     return (
-  //       <div className={sectionClass || ""}>
-  //         <Field
-  //           type={type}
-  //           name={name}
-  //           placeholder={placeholder || ""}
-  //           className={fieldClass || "rounded py-1 px-2"}
-  //           key={index}
-  //         />
-  //         <ErrorMessage name={name} />
-  //       </div>
-  //     );
-  //   }
-  // );
 
   return (
     <Formik
@@ -67,29 +45,19 @@ const FormikForm = ({
     >
       {({ isSubmitting }) => (
         <Form>
-          <div className={formClass || "flex flex-col my-4"}>
+          <div className={`flex flex-col ${formClass}`}>
             {fields.map(
-              ({
-                name,
-                type,
-                placeholder,
-                classname,
-                sectionClass,
-                fieldClass,
-              }) => {
+              ({ name, type, placeholder, sectionClass, fieldClass }) => {
                 return (
                   <div
                     key={name}
-                    className={
-                      sectionClass ||
-                      "flex flex-col justify-center items-center"
-                    }
+                    className={`flex flex-col justify-center items-center ${sectionClass}`}
                   >
                     <Field
                       type={type}
                       name={name}
                       placeholder={placeholder || ""}
-                      className={fieldClass || "w-10/12 rounded my-2 py-1 px-2"}
+                      className={`w-10/12 rounded my-2 py-1 px-2 ${fieldClass}`}
                     />
                     <ErrorMessage name={name} />
                   </div>

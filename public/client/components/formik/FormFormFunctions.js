@@ -1,6 +1,6 @@
 // initialValuesObj = {[obj.name]: "", ...}
-export const initialValuesFunction = (initialValuesObj, arrOfObjs) => {
-  arrOfObjs.map((obj) => {
+export const initialValuesFunction = (initialValuesObj, fields) => {
+  fields.map((obj) => {
     let newobj = { [obj.name]: "" };
     return (initialValuesObj = { ...initialValuesObj, ...newobj });
   });

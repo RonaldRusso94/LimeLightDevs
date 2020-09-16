@@ -17,7 +17,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="lg:flex items-center  sm:p-10 p-4">
+    <div className="lg:flex items-center  sm:p-10 p-4 bg-gray-300 border-2 border-indigo-800">
       <div className="w-full lg:w-1/2 text-center xl:px-4">
         <div>
           <h1 className="text-4xl md:text-5xl mb-8 leading-tight font-bold tracking-tight">

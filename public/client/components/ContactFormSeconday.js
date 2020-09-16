@@ -23,7 +23,7 @@ const ContactFormSeconday = () => {
         <FormikForm
           fields={[
             {
-              className: "",
+              formClass: "",
               fieldClass: "",
               initialValue: "",
               name: "firstName",
