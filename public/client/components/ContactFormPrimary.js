@@ -4,7 +4,7 @@ import * as Yup from "yup";
 const ContactFormPrimary = () => {
   return (
     <div className="mt-16 flex flex-wrap-reverse items-center">
-      <div className="md:w-6/12 w-full">
+      <div className="w-full md:w-6/12 lg:w-7/12">
         {/* text-4xl font-bold text-left mx-3 md:mx-10 mb-10 */}
         <h2 className=" text-4xl font-bold mb-10 text-center">
           Let's talk business!
@@ -106,7 +106,7 @@ const ContactFormPrimary = () => {
           </Form>
         </Formik>
       </div>
-      <div className="md:w-6/12 w-full flex flex-col items-center">
+      <div className="w-full md:w-6/12 lg:w-5/12 flex flex-col items-center">
         <h2 className="text-4xl font-bold mt-5">Contact Us</h2>
         <p className="text-gray-800 text-xl mt-5">order@designdok.com</p>
         <p className="text-blue-700 text-xl">+123 456 789</p>
