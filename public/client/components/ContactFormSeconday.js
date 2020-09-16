@@ -65,9 +65,10 @@ const ContactFormSeconday = () => {
         /> */}
 
         <Formik
-          initialValues={{ firstName: "", lastName: "", email: "" }}
+          initialValues={{ name: "", email: "", phone: "", message: "" }}
           validationSchema={Yup.object({
-            firstName: Yup.string()
+            name: Yup.string()
+              .min(3, "Must be 3 characters")
               .max(15, "Must be 15 characters or less")
               .required("Required"),
 
@@ -110,7 +111,7 @@ const ContactFormSeconday = () => {
                   className="w-10/12 rounded my-2 py-1 px-2"
                   name="phone"
                   placeholder="Phone Number"
-                  type="tel"
+                  type="text"
                 />
                 <ErrorMessage name="phone" />
               </div>
