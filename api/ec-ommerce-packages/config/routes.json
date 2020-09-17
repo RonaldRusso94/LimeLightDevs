@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/ec-ommerce-packages",
+      "handler": "ec-ommerce-packages.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ec-ommerce-packages/count",
+      "handler": "ec-ommerce-packages.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ec-ommerce-packages/:id",
+      "handler": "ec-ommerce-packages.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/ec-ommerce-packages",
+      "handler": "ec-ommerce-packages.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ec-ommerce-packages/:id",
+      "handler": "ec-ommerce-packages.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/ec-ommerce-packages/:id",
+      "handler": "ec-ommerce-packages.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

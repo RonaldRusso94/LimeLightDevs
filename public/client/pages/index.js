@@ -44,7 +44,7 @@ class index extends React.Component {
         <Hero />
         <div>
           test
-          <img src="/maintenance.png" alt="" />
+          <img src="../static/images/maintenance.png" alt="" />
         </div>
 
         <ContactFormSecondary />
