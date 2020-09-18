@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/ec-ommerce-packages",
-      "handler": "ec-ommerce-packages.find",
+      "path": "/ecommerce-packages",
+      "handler": "ecommerce-packages.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/ec-ommerce-packages/count",
-      "handler": "ec-ommerce-packages.count",
+      "path": "/ecommerce-packages/count",
+      "handler": "ecommerce-packages.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/ec-ommerce-packages/:id",
-      "handler": "ec-ommerce-packages.findOne",
+      "path": "/ecommerce-packages/:id",
+      "handler": "ecommerce-packages.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/ec-ommerce-packages",
-      "handler": "ec-ommerce-packages.create",
+      "path": "/ecommerce-packages",
+      "handler": "ecommerce-packages.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/ec-ommerce-packages/:id",
-      "handler": "ec-ommerce-packages.update",
+      "path": "/ecommerce-packages/:id",
+      "handler": "ecommerce-packages.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/ec-ommerce-packages/:id",
-      "handler": "ec-ommerce-packages.delete",
+      "path": "/ecommerce-packages/:id",
+      "handler": "ecommerce-packages.delete",
       "config": {
         "policies": []
       }

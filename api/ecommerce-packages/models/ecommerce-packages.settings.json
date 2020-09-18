@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "packages",
+  "collectionName": "ecommerce_packages",
   "info": {
-    "name": "Packages"
+    "name": "Ecommerce-Packages"
   },
   "options": {
     "increments": true,
@@ -14,11 +14,11 @@
       "required": true
     },
     "was": {
-      "type": "integer",
+      "type": "string",
       "required": true
     },
     "is": {
-      "type": "integer",
+      "type": "string",
       "required": true
     },
     "description": {
