@@ -1,103 +1,29 @@
 import PackageDeal from "./PackageDeal";
 import { useState, useEffect } from "react";
+import Button from "./common/Button";
 
-// TODO get this from server
-const packageGroupsData = [
-  {
-    name: "Web Design",
-    packages: [
-      {
-        title: "Basic Web Package",
-        originalPrice: "299",
-        price: "199",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, voluptates?",
-        details: ["2 Stock Images", "3 Page Website"],
-      },
-      {
-        title: "Startup Web Package",
-        originalPrice: "596",
-        price: "399",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, voluptates?",
-        details: ["5 Stock Photos", "5 Page Website"],
-      },
-      {
-        title: "Professional Web Package",
-        originalPrice: "1308",
-        price: "699",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, voluptates?",
-        details: ["10 Stock Photos", "10 Page Website"],
-      },
-    ],
-  },
-  {
-    name: "eCommerce Packages",
-    packages: [
-      {
-        title: "Basic eCommerce Package",
-        originalPrice: "299",
-        price: "199",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, voluptates?",
-        details: ["2 Stock Images", "3 Page Website"],
-      },
-      {
-        title: "Startup eCommerce Package",
-        originalPrice: "596",
-        price: "399",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, voluptates?",
-        details: ["5 Stock Photos", "5 Page Website"],
-      },
-      {
-        title: "Professional eCommerce Package",
-        originalPrice: "1308",
-        price: "699",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, voluptates?",
-        details: ["10 Stock Photos", "10 Page Website"],
-      },
-    ],
-  },
-];
-
-const PackageGroupSelector = ({ activeGroup, setActiveGroup, groups }) => {
-  return (
-    <div className="flex flex-wrap justify-center">
-      {groups?.map((group) => (
-        <button
-          onClick={() => setActiveGroup(group)}
-          className={`m-1 p-2 rounded border-2 ${
-            group == activeGroup ? "bg-blue-500 text-white" : ""
-          }`}
-          key={group}
-        >
-          {group}
-        </button>
-      ))}
-    </div>
-  );
-};
+import api from "../api/index";
 
 const Packages = () => {
-  const [packageGroups] = useState(packageGroupsData);
-  const [activeGroup, setActiveGroup] = useState("");
-  const [visiblePackageGroup, setVisiblePackageGroup] = useState();
+  const [buttonToggle, setButtonToggle] = useState("ecommerce-packages");
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    setActiveGroup(packageGroups?.[0]?.name);
-  }, [packageGroups]);
-
-  useEffect(() => {
-    setVisiblePackageGroup(
-      packageGroups?.find((packageGroup) => packageGroup.name == activeGroup)
-    );
-  }, [activeGroup, packageGroups]);
+    const apiCall = async () => {
+      try {
+        const res = await api.get(`/${buttonToggle}`);
+        setItems(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    apiCall();
+    // eslint-disable-next-line
+  }, [buttonToggle]);
 
   return (
     <div className="bg-gray-200 my-8 p-4">
+      {/* Heading */}
       <div>
         <h1 className="text-3xl font-bold">My Packages</h1>
         <p className="lg:w-10/12">
@@ -108,20 +34,40 @@ const Packages = () => {
         </p>
       </div>
 
-      <PackageGroupSelector
-        {...{
-          activeGroup,
-          setActiveGroup,
-          groups: packageGroups?.map((group) => group.name),
-        }}
-      />
-
+      {/* Buttons - Basic Packages / Ecommerce Packages */}
       <div className="flex flex-wrap justify-center">
-        {visiblePackageGroup?.packages.map((packageItem) => (
-          <div key={packageItem.title} className="py-4 px-0 sm:px-4">
-            <PackageDeal {...packageItem} />
-          </div>
-        ))}
+        <Button
+          onClick={() => {
+            setButtonToggle("basic-packages");
+          }}
+          className={`m-1 p-2 rounded border-2 ${
+            buttonToggle === "basic-packages" ? "bg-blue-500 text-white" : ""
+          }`}
+        >
+          Basic Packages
+        </Button>
+
+        <Button
+          onClick={() => {
+            setButtonToggle("ecommerce-packages");
+          }}
+          className={`m-1 p-2 rounded border-2 ${
+            buttonToggle === "ecommerce-packages"
+              ? "bg-blue-500 text-white"
+              : ""
+          }`}
+        >
+          Ecommerce Packages
+        </Button>
+      </div>
+
+      {/* Packages */}
+      <div className="flex flex-wrap justify-center">
+        {/* <div className="py-4 px-0 sm:px-4">
+          {items.map((item) => {
+            return <PackageDeal item={item} />;
+          })}
+        </div> */}
       </div>
     </div>
   );
