@@ -62,12 +62,17 @@ const Packages = () => {
       </div>
 
       {/* Packages */}
+      {/* <div className="bg-red-500 py-16 flex">
+        <div className="w-4/12 bg-blue-500">4/12</div>
+        <div className="w-4/12 bg-green-500">4/12</div>
+
+        <div className="w-4/12 bg-orange-500">4/12</div>
+      </div> */}
+
       <div className="flex flex-wrap justify-center">
-        {/* <div className="py-4 px-0 sm:px-4">
-          {items.map((item) => {
-            return <PackageDeal item={item} />;
-          })}
-        </div> */}
+        {items.map((item) => {
+          return <PackageDeal item={item} />;
+        })}
       </div>
     </div>
   );
