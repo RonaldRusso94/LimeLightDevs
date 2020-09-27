@@ -6,7 +6,10 @@ const ContactFormSeconday = () => {
   return (
     <div className="bg-purple-600 p-4 my-8 sm:flex xl:mx-32 rounded">
       <div className=" flex flex-col justify-center items-center sm:w-1/2 sm:px-4 my-4">
-        <img src="http://placekitten.com/g/400/200" alt="" />
+        <img
+          src="https://media.discordapp.net/attachments/758743606898327574/759171363738615818/undraw_message_sent_1030.png?width=886&height=544"
+          alt=""
+        />
         <p className="text-xs sm:text-base text-center sm:mt-6">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, iste!
         </p>
@@ -76,7 +79,9 @@ const ContactFormSeconday = () => {
               .email("Invalid email address")
               .required("Required"),
             phone: Yup.string(),
-            message: Yup.string().min(10, "Must be 10 characters or more"),
+            message: Yup.string()
+              .min(10, "Must be 10 characters or more")
+              .required("Required"),
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {

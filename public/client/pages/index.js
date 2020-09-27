@@ -42,10 +42,6 @@ class index extends React.Component {
     return (
       <Layout>
         <Hero />
-        <div>
-          test
-          <img src="../static/images/maintenance.png" alt="" />
-        </div>
 
         <ContactFormSecondary />
         <Packages />
