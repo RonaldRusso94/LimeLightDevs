@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const api = axios.create({
-  baseURL: "http://localhost:1337",
+  baseURL: "https://limelightdevs.herokuapp.com",
   headers: {
     Accept: "application/json",
   },
