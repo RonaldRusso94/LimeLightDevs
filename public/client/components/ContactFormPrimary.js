@@ -1,6 +1,8 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import api from "../api/index";
+
 const ContactFormPrimary = () => {
   return (
     <div className="mt-16 flex flex-wrap-reverse items-center">
@@ -25,11 +27,26 @@ const ContactFormPrimary = () => {
               .min(10, "Must be 10 characters or more")
               .required("Required"),
           })}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
+          onSubmit={async (
+            { name, email, phone, message },
+            { setSubmitting }
+          ) => {
+            try {
+              const data = {
+                to: "LimeLightDevs@gmail.com",
+                from: "LimeLightDevs@gmail.com",
+                subject: "LimeLightDevs Contact Form",
+                html: `
+                <p>${name}</p><br/>
+                <p>${email}</p><br/>
+                ${phone && `<p>phone: ${phone} </p><br/>`}
+                <p>${message}</p><br/>`,
+              };
+              const res = await api.post(`/email`, data);
               setSubmitting(false);
-            }, 400);
+            } catch (error) {
+              console.log("error :>> ", error);
+            }
           }}
         >
           <Form>
@@ -108,7 +125,7 @@ const ContactFormPrimary = () => {
       </div>
       <div className="w-full md:w-6/12 lg:w-5/12 flex flex-col items-center">
         <h2 className="text-4xl font-bold mt-5">Contact Us</h2>
-        <p className="text-gray-800 text-xl mt-5">order@designdok.com</p>
+        <p className="text-gray-800 text-xl mt-5">LimeLightDevs@gmail.com</p>
         <p className="text-blue-700 text-xl">+123 456 789</p>
 
         <img src="https://designdok.com/assets/images/animation_banner.gif" />
