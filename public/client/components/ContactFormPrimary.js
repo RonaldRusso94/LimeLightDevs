@@ -29,7 +29,7 @@ const ContactFormPrimary = () => {
           })}
           onSubmit={async (
             { name, email, phone, message },
-            { setSubmitting }
+            { setSubmitting, resetForm }
           ) => {
             try {
               const data = {
@@ -42,7 +42,9 @@ const ContactFormPrimary = () => {
                 ${phone && `<p>phone: ${phone} </p><br/>`}
                 <p>${message}</p><br/>`,
               };
-              const res = await api.post(`/email`, data);
+              await api.post(`/email`, data);
+              resetForm();
+
               setSubmitting(false);
             } catch (error) {
               console.log("error :>> ", error);

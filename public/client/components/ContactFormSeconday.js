@@ -2,6 +2,8 @@ import FormikForm from "./formik/FormikForm";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+import api from "../api/index";
+
 const ContactFormSeconday = () => {
   return (
     <div className="bg-purple-600 p-4 my-8 sm:flex xl:mx-32 rounded">
@@ -24,48 +26,6 @@ const ContactFormSeconday = () => {
           reprehenderit quaerat accusantium distinctio. In voluptatem commodi
           aliquam harum voluptatum possimus?
         </p>
-        {/* <FormikForm
-          fields={[
-            {
-              formClass: "",
-              fieldClass: "",
-              initialValue: "",
-              name: "firstName",
-              type: "text",
-              placeholder: "First Name",
-              validationFunction: Yup.string()
-                .min(5, "Must be 5 characters or more")
-                .max(20, "Must be 20 characters or less")
-                .required("Required"),
-            },
-            {
-              fieldClass: "",
-              initialValue: "",
-              name: "lastName",
-              type: "text",
-              placeholder: "Last Name",
-              validationFunction: Yup.string()
-                .min(5, "Must be 5 characters or more")
-                .max(20, "Must be 20 characters or less")
-                .required("Required"),
-            },
-            {
-              fieldClass: "",
-              initialValue: "",
-              name: "email",
-              type: "email",
-              placeholder: "Your Email",
-              validationFunction: Yup.string()
-                .email("Invalid email address")
-                .required("Required"),
-            },
-            {
-              name: "phone",
-              type: "number",
-              placeholder: "Your Phone",
-            },
-          ]}
-        /> */}
 
         <Formik
           initialValues={{ name: "", email: "", phone: "", message: "" }}
@@ -83,11 +43,29 @@ const ContactFormSeconday = () => {
               .min(10, "Must be 10 characters or more")
               .required("Required"),
           })}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
+          onSubmit={async (
+            { name, email, phone, message },
+            { setSubmitting, resetForm }
+          ) => {
+            console.log("test :>> ", "test");
+            try {
+              const data = {
+                to: "LimeLightDevs@gmail.com",
+                from: "LimeLightDevs@gmail.com",
+                subject: "LimeLightDevs Contact Form",
+                html: `
+                <p>${name}</p><br/>
+                <p>${email}</p><br/>
+                ${phone && `<p>phone: ${phone} </p><br/>`}
+                <p>${message}</p><br/>`,
+              };
+              await api.post(`/email`, data);
+              resetForm();
+
               setSubmitting(false);
-            }, 400);
+            } catch (error) {
+              console.log("error :>> ", error);
+            }
           }}
         >
           <Form>
